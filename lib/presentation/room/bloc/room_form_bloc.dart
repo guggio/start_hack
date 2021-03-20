@@ -37,12 +37,12 @@ class RoomFormBloc extends Bloc<RoomFormEvent, RoomFormState> {
           final userOption = await getIt<IAuthFacade>().getSignedInUser();
       yield e.initialRoom.fold(
         () => state.copyWith(
-            room: state.room.copyWith(
-          creator: UniqueId.fromUniqueString(userOption
-              .getOrElse(() => null)
-              ?.id
-              ?.value),
-        )),
+          room: state.room.copyWith(
+            creator: UniqueId.fromUniqueString(userOption.isSome()
+                ? userOption.getOrElse(null)
+                : ""),
+          ),
+        ),
         (editedRoom) => state.copyWith(
           room: editedRoom,
           isEditing: true,
