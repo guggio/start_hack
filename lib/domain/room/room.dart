@@ -12,8 +12,10 @@
  *
  */
 
+import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:start_hack/domain/core/unique_id.dart';
+import 'package:start_hack/domain/core/value_failure.dart';
 import 'package:start_hack/domain/room/room_description.dart';
 import 'package:start_hack/domain/room/room_name.dart';
 import 'package:start_hack/domain/room/room_time.dart';
@@ -46,4 +48,10 @@ abstract class Room implements _$Room {
         inviteOnly: false,
         subscribers: [],
       );
+
+  Option<ValueFailure<dynamic>> get failureOption {
+    return name.failureOrUnits
+        .andThen(description.failureOrUnits)
+        .fold((f) => some(f), (_) => none());
+  }
 }
