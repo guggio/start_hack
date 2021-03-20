@@ -16,6 +16,7 @@ class _$RoomTearOff {
 // ignore: unused_element
   _Room call(
       {@required UniqueId id,
+      @required UniqueId creator,
       @required RoomType type,
       @required RoomName name,
       @required RoomTime time,
@@ -24,6 +25,7 @@ class _$RoomTearOff {
       @required List<UniqueId> subscribers}) {
     return _Room(
       id: id,
+      creator: creator,
       type: type,
       name: name,
       time: time,
@@ -41,6 +43,7 @@ const $Room = _$RoomTearOff();
 /// @nodoc
 mixin _$Room {
   UniqueId get id;
+  UniqueId get creator;
   RoomType get type;
   RoomName get name;
   RoomTime get time;
@@ -58,6 +61,7 @@ abstract class $RoomCopyWith<$Res> {
       _$RoomCopyWithImpl<$Res>;
   $Res call(
       {UniqueId id,
+      UniqueId creator,
       RoomType type,
       RoomName name,
       RoomTime time,
@@ -79,6 +83,7 @@ class _$RoomCopyWithImpl<$Res> implements $RoomCopyWith<$Res> {
   @override
   $Res call({
     Object id = freezed,
+    Object creator = freezed,
     Object type = freezed,
     Object name = freezed,
     Object time = freezed,
@@ -88,6 +93,7 @@ class _$RoomCopyWithImpl<$Res> implements $RoomCopyWith<$Res> {
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as UniqueId,
+      creator: creator == freezed ? _value.creator : creator as UniqueId,
       type: type == freezed ? _value.type : type as RoomType,
       name: name == freezed ? _value.name : name as RoomName,
       time: time == freezed ? _value.time : time as RoomTime,
@@ -120,6 +126,7 @@ abstract class _$RoomCopyWith<$Res> implements $RoomCopyWith<$Res> {
   @override
   $Res call(
       {UniqueId id,
+      UniqueId creator,
       RoomType type,
       RoomName name,
       RoomTime time,
@@ -143,6 +150,7 @@ class __$RoomCopyWithImpl<$Res> extends _$RoomCopyWithImpl<$Res>
   @override
   $Res call({
     Object id = freezed,
+    Object creator = freezed,
     Object type = freezed,
     Object name = freezed,
     Object time = freezed,
@@ -152,6 +160,7 @@ class __$RoomCopyWithImpl<$Res> extends _$RoomCopyWithImpl<$Res>
   }) {
     return _then(_Room(
       id: id == freezed ? _value.id : id as UniqueId,
+      creator: creator == freezed ? _value.creator : creator as UniqueId,
       type: type == freezed ? _value.type : type as RoomType,
       name: name == freezed ? _value.name : name as RoomName,
       time: time == freezed ? _value.time : time as RoomTime,
@@ -171,6 +180,7 @@ class __$RoomCopyWithImpl<$Res> extends _$RoomCopyWithImpl<$Res>
 class _$_Room extends _Room {
   const _$_Room(
       {@required this.id,
+      @required this.creator,
       @required this.type,
       @required this.name,
       @required this.time,
@@ -178,6 +188,7 @@ class _$_Room extends _Room {
       @required this.inviteOnly,
       @required this.subscribers})
       : assert(id != null),
+        assert(creator != null),
         assert(type != null),
         assert(name != null),
         assert(time != null),
@@ -188,6 +199,8 @@ class _$_Room extends _Room {
 
   @override
   final UniqueId id;
+  @override
+  final UniqueId creator;
   @override
   final RoomType type;
   @override
@@ -203,7 +216,7 @@ class _$_Room extends _Room {
 
   @override
   String toString() {
-    return 'Room(id: $id, type: $type, name: $name, time: $time, description: $description, inviteOnly: $inviteOnly, subscribers: $subscribers)';
+    return 'Room(id: $id, creator: $creator, type: $type, name: $name, time: $time, description: $description, inviteOnly: $inviteOnly, subscribers: $subscribers)';
   }
 
   @override
@@ -212,6 +225,9 @@ class _$_Room extends _Room {
         (other is _Room &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
+            (identical(other.creator, creator) ||
+                const DeepCollectionEquality()
+                    .equals(other.creator, creator)) &&
             (identical(other.type, type) ||
                 const DeepCollectionEquality().equals(other.type, type)) &&
             (identical(other.name, name) ||
@@ -233,6 +249,7 @@ class _$_Room extends _Room {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
+      const DeepCollectionEquality().hash(creator) ^
       const DeepCollectionEquality().hash(type) ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(time) ^
@@ -250,6 +267,7 @@ abstract class _Room extends Room {
   const _Room._() : super._();
   const factory _Room(
       {@required UniqueId id,
+      @required UniqueId creator,
       @required RoomType type,
       @required RoomName name,
       @required RoomTime time,
@@ -259,6 +277,8 @@ abstract class _Room extends Room {
 
   @override
   UniqueId get id;
+  @override
+  UniqueId get creator;
   @override
   RoomType get type;
   @override

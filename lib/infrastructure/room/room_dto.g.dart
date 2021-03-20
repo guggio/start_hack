@@ -8,6 +8,7 @@ part of 'room_dto.dart';
 
 _$_RoomDto _$_$_RoomDtoFromJson(Map<String, dynamic> json) {
   return _$_RoomDto(
+    creator: json['creator'] as String,
     type: json['type'] as String,
     name: json['name'] as String,
     time: json['time'] == null
@@ -22,6 +23,7 @@ _$_RoomDto _$_$_RoomDtoFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$_$_RoomDtoToJson(_$_RoomDto instance) =>
     <String, dynamic>{
+      'creator': instance.creator,
       'type': instance.type,
       'name': instance.name,
       'time': instance.time,

@@ -25,4 +25,9 @@ abstract class RoomTime implements _$RoomTime {
     @required DateTime date,
     @required Period period,
   }) = _RoomTime;
+
+  factory RoomTime.empty() => RoomTime(
+        date: DateTime.now(),
+        period: Period.empty(),
+      );
 }

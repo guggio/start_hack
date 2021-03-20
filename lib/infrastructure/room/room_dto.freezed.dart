@@ -19,6 +19,7 @@ class _$RoomDtoTearOff {
 // ignore: unused_element
   _RoomDto call(
       {@JsonKey(ignore: true) String id,
+      @required String creator,
       @required String type,
       @required String name,
       @required RoomTimeDto time,
@@ -27,6 +28,7 @@ class _$RoomDtoTearOff {
       @required List<String> subscribers}) {
     return _RoomDto(
       id: id,
+      creator: creator,
       type: type,
       name: name,
       time: time,
@@ -50,6 +52,7 @@ const $RoomDto = _$RoomDtoTearOff();
 mixin _$RoomDto {
   @JsonKey(ignore: true)
   String get id;
+  String get creator;
   String get type;
   String get name;
   RoomTimeDto get time;
@@ -68,6 +71,7 @@ abstract class $RoomDtoCopyWith<$Res> {
       _$RoomDtoCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(ignore: true) String id,
+      String creator,
       String type,
       String name,
       RoomTimeDto time,
@@ -89,6 +93,7 @@ class _$RoomDtoCopyWithImpl<$Res> implements $RoomDtoCopyWith<$Res> {
   @override
   $Res call({
     Object id = freezed,
+    Object creator = freezed,
     Object type = freezed,
     Object name = freezed,
     Object time = freezed,
@@ -98,6 +103,7 @@ class _$RoomDtoCopyWithImpl<$Res> implements $RoomDtoCopyWith<$Res> {
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as String,
+      creator: creator == freezed ? _value.creator : creator as String,
       type: type == freezed ? _value.type : type as String,
       name: name == freezed ? _value.name : name as String,
       time: time == freezed ? _value.time : time as RoomTimeDto,
@@ -129,6 +135,7 @@ abstract class _$RoomDtoCopyWith<$Res> implements $RoomDtoCopyWith<$Res> {
   @override
   $Res call(
       {@JsonKey(ignore: true) String id,
+      String creator,
       String type,
       String name,
       RoomTimeDto time,
@@ -152,6 +159,7 @@ class __$RoomDtoCopyWithImpl<$Res> extends _$RoomDtoCopyWithImpl<$Res>
   @override
   $Res call({
     Object id = freezed,
+    Object creator = freezed,
     Object type = freezed,
     Object name = freezed,
     Object time = freezed,
@@ -161,6 +169,7 @@ class __$RoomDtoCopyWithImpl<$Res> extends _$RoomDtoCopyWithImpl<$Res>
   }) {
     return _then(_RoomDto(
       id: id == freezed ? _value.id : id as String,
+      creator: creator == freezed ? _value.creator : creator as String,
       type: type == freezed ? _value.type : type as String,
       name: name == freezed ? _value.name : name as String,
       time: time == freezed ? _value.time : time as RoomTimeDto,
@@ -181,13 +190,15 @@ class __$RoomDtoCopyWithImpl<$Res> extends _$RoomDtoCopyWithImpl<$Res>
 class _$_RoomDto extends _RoomDto {
   const _$_RoomDto(
       {@JsonKey(ignore: true) this.id,
+      @required this.creator,
       @required this.type,
       @required this.name,
       @required this.time,
       @required this.description,
       @required this.inviteOnly,
       @required this.subscribers})
-      : assert(type != null),
+      : assert(creator != null),
+        assert(type != null),
         assert(name != null),
         assert(time != null),
         assert(description != null),
@@ -201,6 +212,8 @@ class _$_RoomDto extends _RoomDto {
   @override
   @JsonKey(ignore: true)
   final String id;
+  @override
+  final String creator;
   @override
   final String type;
   @override
@@ -216,7 +229,7 @@ class _$_RoomDto extends _RoomDto {
 
   @override
   String toString() {
-    return 'RoomDto(id: $id, type: $type, name: $name, time: $time, description: $description, inviteOnly: $inviteOnly, subscribers: $subscribers)';
+    return 'RoomDto(id: $id, creator: $creator, type: $type, name: $name, time: $time, description: $description, inviteOnly: $inviteOnly, subscribers: $subscribers)';
   }
 
   @override
@@ -225,6 +238,9 @@ class _$_RoomDto extends _RoomDto {
         (other is _RoomDto &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
+            (identical(other.creator, creator) ||
+                const DeepCollectionEquality()
+                    .equals(other.creator, creator)) &&
             (identical(other.type, type) ||
                 const DeepCollectionEquality().equals(other.type, type)) &&
             (identical(other.name, name) ||
@@ -246,6 +262,7 @@ class _$_RoomDto extends _RoomDto {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
+      const DeepCollectionEquality().hash(creator) ^
       const DeepCollectionEquality().hash(type) ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(time) ^
@@ -268,6 +285,7 @@ abstract class _RoomDto extends RoomDto {
   const _RoomDto._() : super._();
   const factory _RoomDto(
       {@JsonKey(ignore: true) String id,
+      @required String creator,
       @required String type,
       @required String name,
       @required RoomTimeDto time,
@@ -280,6 +298,8 @@ abstract class _RoomDto extends RoomDto {
   @override
   @JsonKey(ignore: true)
   String get id;
+  @override
+  String get creator;
   @override
   String get type;
   @override

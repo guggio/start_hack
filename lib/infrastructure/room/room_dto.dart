@@ -32,6 +32,7 @@ abstract class RoomDto implements _$RoomDto {
 
   const factory RoomDto({
     @JsonKey(ignore: true) String id,
+    @required String creator,
     @required String type,
     @required String name,
     @required RoomTimeDto time,
@@ -43,6 +44,7 @@ abstract class RoomDto implements _$RoomDto {
   factory RoomDto.fromDomain(Room room) {
     return RoomDto(
       id: room.id.value,
+      creator: room.creator.value,
       type: room.type.toString(),
       name: room.name.value,
       time: RoomTimeDto.fromDomain(room.time),
@@ -55,6 +57,7 @@ abstract class RoomDto implements _$RoomDto {
   Room toDomain() {
     return Room(
       id: UniqueId.fromUniqueString(id),
+      creator: UniqueId.fromUniqueString(creator),
       type: RoomTypeHelper.toRoomType(type),
       name: RoomName(name),
       time: time.toDomain(),

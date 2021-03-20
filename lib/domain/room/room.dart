@@ -27,6 +27,7 @@ abstract class Room implements _$Room {
 
   const factory Room({
     @required UniqueId id,
+    @required UniqueId creator,
     @required RoomType type,
     @required RoomName name,
     @required RoomTime time,
@@ -34,4 +35,15 @@ abstract class Room implements _$Room {
     @required bool inviteOnly,
     @required List<UniqueId> subscribers,
   }) = _Room;
+
+  factory Room.empty() => Room(
+        id: UniqueId(),
+        creator: UniqueId(),
+        type: RoomType.coffeeBreak,
+        name: RoomName(""),
+        time: RoomTime.empty(),
+        description: RoomDescription(""),
+        inviteOnly: false,
+        subscribers: [],
+      );
 }
