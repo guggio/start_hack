@@ -24,6 +24,18 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # Firebase dependencies
+  firebase_core: ^0.7.0
+  cloud_firestore: ^0.16.0+1
+  firebase_auth: ^0.20.1
+
+  # helper packages
+  uuid: ^2.2.2
+  freezed_annotation: ^0.12.0
+  get_it: ^5.0.1
+  injectable: ^1.0.5
+  kt_dart: ^0.8.0
+
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -32,9 +44,13 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  firebase_core: ^0.7.0
-  cloud_firestore: ^0.16.0+1
-  firebase_auth: ^0.20.1
+
+  build_runner:
+
+  freezed: ^0.12.7
+  injectable_generator: ^1.0.6
+  json_serializable: ^3.5.0
+
 
 
 # For information on the generic Dart part of this file, see the
