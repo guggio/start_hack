@@ -18,14 +18,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:start_hack/domain/room/room.dart';
 import 'package:start_hack/injection.dart';
+import 'package:start_hack/presentation/core/savings_overlay.dart';
 import 'package:start_hack/presentation/room/bloc/room_form_bloc.dart';
-import 'package:start_hack/presentation/room/core/savings_overlay.dart';
 import 'package:start_hack/presentation/room/view/widgets/room_date_field.dart';
 import 'package:start_hack/presentation/room/view/widgets/room_description_field.dart';
 import 'package:start_hack/presentation/room/view/widgets/room_name_field.dart';
 import 'package:start_hack/presentation/room/view/widgets/room_type_field.dart';
-
-enum PeriodField { from, to }
 
 class RoomFormPage extends StatelessWidget {
   final Room editedRoom;

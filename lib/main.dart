@@ -1,8 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:start_hack/injection.dart';
+import 'package:start_hack/presentation/core/splash.dart';
 import 'package:start_hack/presentation/room/view/room_form_page.dart';
+import 'package:start_hack/presentation/signin/auth/auth_bloc.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,14 +18,19 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+    return BlocProvider(
+      create: (context) =>
+          getIt<AuthBloc>()..add(const AuthEvent.authCheckRequested()),
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        home: SplashPage(),
+        // home: MyHomePage(title: 'Flutter Demo Home Page'),
+        debugShowCheckedModeBanner: false,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-      debugShowCheckedModeBanner: false,
     );
   }
 }

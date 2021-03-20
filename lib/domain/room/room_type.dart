@@ -14,7 +14,7 @@
 
 import 'package:kt_dart/exception.dart';
 
-enum RoomType { coffeeBreak, gameTime, discussion }
+enum RoomType { coffeeBreak, gameTime, discussion, exercise }
 
 extension RoomTypeX on RoomType {
   String toShortString() {
@@ -29,6 +29,8 @@ extension RoomTypeX on RoomType {
         return 'Game time';
       case RoomType.discussion:
         return 'Discussion';
+      case RoomType.exercise:
+        return 'Exercise';
     }
     return '';
   }
