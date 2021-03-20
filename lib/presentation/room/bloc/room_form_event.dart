@@ -9,7 +9,11 @@ abstract class RoomFormEvent with _$RoomFormEvent {
 
   const factory RoomFormEvent.nameChanged(String name) = _NameChanged;
 
-  const factory RoomFormEvent.timeChanged(RoomTime time) = _TimeChanged;
+  const factory RoomFormEvent.dateChanged(DateTime date) = _DateChanged;
+
+  const factory RoomFormEvent.fromChanged(TimeOfDay from) = _FromChanged;
+
+  const factory RoomFormEvent.toChanged(TimeOfDay to) = _ToChanged;
 
   const factory RoomFormEvent.descriptionChanged(String description) =
       _DescriptionChanged;

@@ -35,9 +35,23 @@ class _$RoomFormEventTearOff {
   }
 
 // ignore: unused_element
-  _TimeChanged timeChanged(RoomTime time) {
-    return _TimeChanged(
-      time,
+  _DateChanged dateChanged(DateTime date) {
+    return _DateChanged(
+      date,
+    );
+  }
+
+// ignore: unused_element
+  _FromChanged fromChanged(TimeOfDay from) {
+    return _FromChanged(
+      from,
+    );
+  }
+
+// ignore: unused_element
+  _ToChanged toChanged(TimeOfDay to) {
+    return _ToChanged(
+      to,
     );
   }
 
@@ -72,7 +86,9 @@ mixin _$RoomFormEvent {
     @required TResult initialized(Option<Room> initialRoom),
     @required TResult typeChanged(RoomType type),
     @required TResult nameChanged(String name),
-    @required TResult timeChanged(RoomTime time),
+    @required TResult dateChanged(DateTime date),
+    @required TResult fromChanged(TimeOfDay from),
+    @required TResult toChanged(TimeOfDay to),
     @required TResult descriptionChanged(String description),
     @required TResult inviteOnlyChanged(bool inviteOnly),
     @required TResult saved(),
@@ -82,7 +98,9 @@ mixin _$RoomFormEvent {
     TResult initialized(Option<Room> initialRoom),
     TResult typeChanged(RoomType type),
     TResult nameChanged(String name),
-    TResult timeChanged(RoomTime time),
+    TResult dateChanged(DateTime date),
+    TResult fromChanged(TimeOfDay from),
+    TResult toChanged(TimeOfDay to),
     TResult descriptionChanged(String description),
     TResult inviteOnlyChanged(bool inviteOnly),
     TResult saved(),
@@ -93,7 +111,9 @@ mixin _$RoomFormEvent {
     @required TResult initialized(_Initialized value),
     @required TResult typeChanged(_TypeChanged value),
     @required TResult nameChanged(_NameChanged value),
-    @required TResult timeChanged(_TimeChanged value),
+    @required TResult dateChanged(_DateChanged value),
+    @required TResult fromChanged(_FromChanged value),
+    @required TResult toChanged(_ToChanged value),
     @required TResult descriptionChanged(_DescriptionChanged value),
     @required TResult inviteOnlyChanged(_InviteOnlyChanged value),
     @required TResult saved(_Saved value),
@@ -103,7 +123,9 @@ mixin _$RoomFormEvent {
     TResult initialized(_Initialized value),
     TResult typeChanged(_TypeChanged value),
     TResult nameChanged(_NameChanged value),
-    TResult timeChanged(_TimeChanged value),
+    TResult dateChanged(_DateChanged value),
+    TResult fromChanged(_FromChanged value),
+    TResult toChanged(_ToChanged value),
     TResult descriptionChanged(_DescriptionChanged value),
     TResult inviteOnlyChanged(_InviteOnlyChanged value),
     TResult saved(_Saved value),
@@ -192,7 +214,9 @@ class _$_Initialized implements _Initialized {
     @required TResult initialized(Option<Room> initialRoom),
     @required TResult typeChanged(RoomType type),
     @required TResult nameChanged(String name),
-    @required TResult timeChanged(RoomTime time),
+    @required TResult dateChanged(DateTime date),
+    @required TResult fromChanged(TimeOfDay from),
+    @required TResult toChanged(TimeOfDay to),
     @required TResult descriptionChanged(String description),
     @required TResult inviteOnlyChanged(bool inviteOnly),
     @required TResult saved(),
@@ -200,7 +224,9 @@ class _$_Initialized implements _Initialized {
     assert(initialized != null);
     assert(typeChanged != null);
     assert(nameChanged != null);
-    assert(timeChanged != null);
+    assert(dateChanged != null);
+    assert(fromChanged != null);
+    assert(toChanged != null);
     assert(descriptionChanged != null);
     assert(inviteOnlyChanged != null);
     assert(saved != null);
@@ -213,7 +239,9 @@ class _$_Initialized implements _Initialized {
     TResult initialized(Option<Room> initialRoom),
     TResult typeChanged(RoomType type),
     TResult nameChanged(String name),
-    TResult timeChanged(RoomTime time),
+    TResult dateChanged(DateTime date),
+    TResult fromChanged(TimeOfDay from),
+    TResult toChanged(TimeOfDay to),
     TResult descriptionChanged(String description),
     TResult inviteOnlyChanged(bool inviteOnly),
     TResult saved(),
@@ -232,7 +260,9 @@ class _$_Initialized implements _Initialized {
     @required TResult initialized(_Initialized value),
     @required TResult typeChanged(_TypeChanged value),
     @required TResult nameChanged(_NameChanged value),
-    @required TResult timeChanged(_TimeChanged value),
+    @required TResult dateChanged(_DateChanged value),
+    @required TResult fromChanged(_FromChanged value),
+    @required TResult toChanged(_ToChanged value),
     @required TResult descriptionChanged(_DescriptionChanged value),
     @required TResult inviteOnlyChanged(_InviteOnlyChanged value),
     @required TResult saved(_Saved value),
@@ -240,7 +270,9 @@ class _$_Initialized implements _Initialized {
     assert(initialized != null);
     assert(typeChanged != null);
     assert(nameChanged != null);
-    assert(timeChanged != null);
+    assert(dateChanged != null);
+    assert(fromChanged != null);
+    assert(toChanged != null);
     assert(descriptionChanged != null);
     assert(inviteOnlyChanged != null);
     assert(saved != null);
@@ -253,7 +285,9 @@ class _$_Initialized implements _Initialized {
     TResult initialized(_Initialized value),
     TResult typeChanged(_TypeChanged value),
     TResult nameChanged(_NameChanged value),
-    TResult timeChanged(_TimeChanged value),
+    TResult dateChanged(_DateChanged value),
+    TResult fromChanged(_FromChanged value),
+    TResult toChanged(_ToChanged value),
     TResult descriptionChanged(_DescriptionChanged value),
     TResult inviteOnlyChanged(_InviteOnlyChanged value),
     TResult saved(_Saved value),
@@ -338,7 +372,9 @@ class _$_TypeChanged implements _TypeChanged {
     @required TResult initialized(Option<Room> initialRoom),
     @required TResult typeChanged(RoomType type),
     @required TResult nameChanged(String name),
-    @required TResult timeChanged(RoomTime time),
+    @required TResult dateChanged(DateTime date),
+    @required TResult fromChanged(TimeOfDay from),
+    @required TResult toChanged(TimeOfDay to),
     @required TResult descriptionChanged(String description),
     @required TResult inviteOnlyChanged(bool inviteOnly),
     @required TResult saved(),
@@ -346,7 +382,9 @@ class _$_TypeChanged implements _TypeChanged {
     assert(initialized != null);
     assert(typeChanged != null);
     assert(nameChanged != null);
-    assert(timeChanged != null);
+    assert(dateChanged != null);
+    assert(fromChanged != null);
+    assert(toChanged != null);
     assert(descriptionChanged != null);
     assert(inviteOnlyChanged != null);
     assert(saved != null);
@@ -359,7 +397,9 @@ class _$_TypeChanged implements _TypeChanged {
     TResult initialized(Option<Room> initialRoom),
     TResult typeChanged(RoomType type),
     TResult nameChanged(String name),
-    TResult timeChanged(RoomTime time),
+    TResult dateChanged(DateTime date),
+    TResult fromChanged(TimeOfDay from),
+    TResult toChanged(TimeOfDay to),
     TResult descriptionChanged(String description),
     TResult inviteOnlyChanged(bool inviteOnly),
     TResult saved(),
@@ -378,7 +418,9 @@ class _$_TypeChanged implements _TypeChanged {
     @required TResult initialized(_Initialized value),
     @required TResult typeChanged(_TypeChanged value),
     @required TResult nameChanged(_NameChanged value),
-    @required TResult timeChanged(_TimeChanged value),
+    @required TResult dateChanged(_DateChanged value),
+    @required TResult fromChanged(_FromChanged value),
+    @required TResult toChanged(_ToChanged value),
     @required TResult descriptionChanged(_DescriptionChanged value),
     @required TResult inviteOnlyChanged(_InviteOnlyChanged value),
     @required TResult saved(_Saved value),
@@ -386,7 +428,9 @@ class _$_TypeChanged implements _TypeChanged {
     assert(initialized != null);
     assert(typeChanged != null);
     assert(nameChanged != null);
-    assert(timeChanged != null);
+    assert(dateChanged != null);
+    assert(fromChanged != null);
+    assert(toChanged != null);
     assert(descriptionChanged != null);
     assert(inviteOnlyChanged != null);
     assert(saved != null);
@@ -399,7 +443,9 @@ class _$_TypeChanged implements _TypeChanged {
     TResult initialized(_Initialized value),
     TResult typeChanged(_TypeChanged value),
     TResult nameChanged(_NameChanged value),
-    TResult timeChanged(_TimeChanged value),
+    TResult dateChanged(_DateChanged value),
+    TResult fromChanged(_FromChanged value),
+    TResult toChanged(_ToChanged value),
     TResult descriptionChanged(_DescriptionChanged value),
     TResult inviteOnlyChanged(_InviteOnlyChanged value),
     TResult saved(_Saved value),
@@ -484,7 +530,9 @@ class _$_NameChanged implements _NameChanged {
     @required TResult initialized(Option<Room> initialRoom),
     @required TResult typeChanged(RoomType type),
     @required TResult nameChanged(String name),
-    @required TResult timeChanged(RoomTime time),
+    @required TResult dateChanged(DateTime date),
+    @required TResult fromChanged(TimeOfDay from),
+    @required TResult toChanged(TimeOfDay to),
     @required TResult descriptionChanged(String description),
     @required TResult inviteOnlyChanged(bool inviteOnly),
     @required TResult saved(),
@@ -492,7 +540,9 @@ class _$_NameChanged implements _NameChanged {
     assert(initialized != null);
     assert(typeChanged != null);
     assert(nameChanged != null);
-    assert(timeChanged != null);
+    assert(dateChanged != null);
+    assert(fromChanged != null);
+    assert(toChanged != null);
     assert(descriptionChanged != null);
     assert(inviteOnlyChanged != null);
     assert(saved != null);
@@ -505,7 +555,9 @@ class _$_NameChanged implements _NameChanged {
     TResult initialized(Option<Room> initialRoom),
     TResult typeChanged(RoomType type),
     TResult nameChanged(String name),
-    TResult timeChanged(RoomTime time),
+    TResult dateChanged(DateTime date),
+    TResult fromChanged(TimeOfDay from),
+    TResult toChanged(TimeOfDay to),
     TResult descriptionChanged(String description),
     TResult inviteOnlyChanged(bool inviteOnly),
     TResult saved(),
@@ -524,7 +576,9 @@ class _$_NameChanged implements _NameChanged {
     @required TResult initialized(_Initialized value),
     @required TResult typeChanged(_TypeChanged value),
     @required TResult nameChanged(_NameChanged value),
-    @required TResult timeChanged(_TimeChanged value),
+    @required TResult dateChanged(_DateChanged value),
+    @required TResult fromChanged(_FromChanged value),
+    @required TResult toChanged(_ToChanged value),
     @required TResult descriptionChanged(_DescriptionChanged value),
     @required TResult inviteOnlyChanged(_InviteOnlyChanged value),
     @required TResult saved(_Saved value),
@@ -532,7 +586,9 @@ class _$_NameChanged implements _NameChanged {
     assert(initialized != null);
     assert(typeChanged != null);
     assert(nameChanged != null);
-    assert(timeChanged != null);
+    assert(dateChanged != null);
+    assert(fromChanged != null);
+    assert(toChanged != null);
     assert(descriptionChanged != null);
     assert(inviteOnlyChanged != null);
     assert(saved != null);
@@ -545,7 +601,9 @@ class _$_NameChanged implements _NameChanged {
     TResult initialized(_Initialized value),
     TResult typeChanged(_TypeChanged value),
     TResult nameChanged(_NameChanged value),
-    TResult timeChanged(_TimeChanged value),
+    TResult dateChanged(_DateChanged value),
+    TResult fromChanged(_FromChanged value),
+    TResult toChanged(_ToChanged value),
     TResult descriptionChanged(_DescriptionChanged value),
     TResult inviteOnlyChanged(_InviteOnlyChanged value),
     TResult saved(_Saved value),
@@ -568,73 +626,61 @@ abstract class _NameChanged implements RoomFormEvent {
 }
 
 /// @nodoc
-abstract class _$TimeChangedCopyWith<$Res> {
-  factory _$TimeChangedCopyWith(
-          _TimeChanged value, $Res Function(_TimeChanged) then) =
-      __$TimeChangedCopyWithImpl<$Res>;
-  $Res call({RoomTime time});
-
-  $RoomTimeCopyWith<$Res> get time;
+abstract class _$DateChangedCopyWith<$Res> {
+  factory _$DateChangedCopyWith(
+          _DateChanged value, $Res Function(_DateChanged) then) =
+      __$DateChangedCopyWithImpl<$Res>;
+  $Res call({DateTime date});
 }
 
 /// @nodoc
-class __$TimeChangedCopyWithImpl<$Res> extends _$RoomFormEventCopyWithImpl<$Res>
-    implements _$TimeChangedCopyWith<$Res> {
-  __$TimeChangedCopyWithImpl(
-      _TimeChanged _value, $Res Function(_TimeChanged) _then)
-      : super(_value, (v) => _then(v as _TimeChanged));
+class __$DateChangedCopyWithImpl<$Res> extends _$RoomFormEventCopyWithImpl<$Res>
+    implements _$DateChangedCopyWith<$Res> {
+  __$DateChangedCopyWithImpl(
+      _DateChanged _value, $Res Function(_DateChanged) _then)
+      : super(_value, (v) => _then(v as _DateChanged));
 
   @override
-  _TimeChanged get _value => super._value as _TimeChanged;
+  _DateChanged get _value => super._value as _DateChanged;
 
   @override
   $Res call({
-    Object time = freezed,
+    Object date = freezed,
   }) {
-    return _then(_TimeChanged(
-      time == freezed ? _value.time : time as RoomTime,
+    return _then(_DateChanged(
+      date == freezed ? _value.date : date as DateTime,
     ));
-  }
-
-  @override
-  $RoomTimeCopyWith<$Res> get time {
-    if (_value.time == null) {
-      return null;
-    }
-    return $RoomTimeCopyWith<$Res>(_value.time, (value) {
-      return _then(_value.copyWith(time: value));
-    });
   }
 }
 
 /// @nodoc
-class _$_TimeChanged implements _TimeChanged {
-  const _$_TimeChanged(this.time) : assert(time != null);
+class _$_DateChanged implements _DateChanged {
+  const _$_DateChanged(this.date) : assert(date != null);
 
   @override
-  final RoomTime time;
+  final DateTime date;
 
   @override
   String toString() {
-    return 'RoomFormEvent.timeChanged(time: $time)';
+    return 'RoomFormEvent.dateChanged(date: $date)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _TimeChanged &&
-            (identical(other.time, time) ||
-                const DeepCollectionEquality().equals(other.time, time)));
+        (other is _DateChanged &&
+            (identical(other.date, date) ||
+                const DeepCollectionEquality().equals(other.date, date)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(time);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(date);
 
   @JsonKey(ignore: true)
   @override
-  _$TimeChangedCopyWith<_TimeChanged> get copyWith =>
-      __$TimeChangedCopyWithImpl<_TimeChanged>(this, _$identity);
+  _$DateChangedCopyWith<_DateChanged> get copyWith =>
+      __$DateChangedCopyWithImpl<_DateChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -642,7 +688,9 @@ class _$_TimeChanged implements _TimeChanged {
     @required TResult initialized(Option<Room> initialRoom),
     @required TResult typeChanged(RoomType type),
     @required TResult nameChanged(String name),
-    @required TResult timeChanged(RoomTime time),
+    @required TResult dateChanged(DateTime date),
+    @required TResult fromChanged(TimeOfDay from),
+    @required TResult toChanged(TimeOfDay to),
     @required TResult descriptionChanged(String description),
     @required TResult inviteOnlyChanged(bool inviteOnly),
     @required TResult saved(),
@@ -650,11 +698,13 @@ class _$_TimeChanged implements _TimeChanged {
     assert(initialized != null);
     assert(typeChanged != null);
     assert(nameChanged != null);
-    assert(timeChanged != null);
+    assert(dateChanged != null);
+    assert(fromChanged != null);
+    assert(toChanged != null);
     assert(descriptionChanged != null);
     assert(inviteOnlyChanged != null);
     assert(saved != null);
-    return timeChanged(time);
+    return dateChanged(date);
   }
 
   @override
@@ -663,15 +713,17 @@ class _$_TimeChanged implements _TimeChanged {
     TResult initialized(Option<Room> initialRoom),
     TResult typeChanged(RoomType type),
     TResult nameChanged(String name),
-    TResult timeChanged(RoomTime time),
+    TResult dateChanged(DateTime date),
+    TResult fromChanged(TimeOfDay from),
+    TResult toChanged(TimeOfDay to),
     TResult descriptionChanged(String description),
     TResult inviteOnlyChanged(bool inviteOnly),
     TResult saved(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (timeChanged != null) {
-      return timeChanged(time);
+    if (dateChanged != null) {
+      return dateChanged(date);
     }
     return orElse();
   }
@@ -682,7 +734,9 @@ class _$_TimeChanged implements _TimeChanged {
     @required TResult initialized(_Initialized value),
     @required TResult typeChanged(_TypeChanged value),
     @required TResult nameChanged(_NameChanged value),
-    @required TResult timeChanged(_TimeChanged value),
+    @required TResult dateChanged(_DateChanged value),
+    @required TResult fromChanged(_FromChanged value),
+    @required TResult toChanged(_ToChanged value),
     @required TResult descriptionChanged(_DescriptionChanged value),
     @required TResult inviteOnlyChanged(_InviteOnlyChanged value),
     @required TResult saved(_Saved value),
@@ -690,11 +744,13 @@ class _$_TimeChanged implements _TimeChanged {
     assert(initialized != null);
     assert(typeChanged != null);
     assert(nameChanged != null);
-    assert(timeChanged != null);
+    assert(dateChanged != null);
+    assert(fromChanged != null);
+    assert(toChanged != null);
     assert(descriptionChanged != null);
     assert(inviteOnlyChanged != null);
     assert(saved != null);
-    return timeChanged(this);
+    return dateChanged(this);
   }
 
   @override
@@ -703,26 +759,343 @@ class _$_TimeChanged implements _TimeChanged {
     TResult initialized(_Initialized value),
     TResult typeChanged(_TypeChanged value),
     TResult nameChanged(_NameChanged value),
-    TResult timeChanged(_TimeChanged value),
+    TResult dateChanged(_DateChanged value),
+    TResult fromChanged(_FromChanged value),
+    TResult toChanged(_ToChanged value),
     TResult descriptionChanged(_DescriptionChanged value),
     TResult inviteOnlyChanged(_InviteOnlyChanged value),
     TResult saved(_Saved value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (timeChanged != null) {
-      return timeChanged(this);
+    if (dateChanged != null) {
+      return dateChanged(this);
     }
     return orElse();
   }
 }
 
-abstract class _TimeChanged implements RoomFormEvent {
-  const factory _TimeChanged(RoomTime time) = _$_TimeChanged;
+abstract class _DateChanged implements RoomFormEvent {
+  const factory _DateChanged(DateTime date) = _$_DateChanged;
 
-  RoomTime get time;
+  DateTime get date;
   @JsonKey(ignore: true)
-  _$TimeChangedCopyWith<_TimeChanged> get copyWith;
+  _$DateChangedCopyWith<_DateChanged> get copyWith;
+}
+
+/// @nodoc
+abstract class _$FromChangedCopyWith<$Res> {
+  factory _$FromChangedCopyWith(
+          _FromChanged value, $Res Function(_FromChanged) then) =
+      __$FromChangedCopyWithImpl<$Res>;
+  $Res call({TimeOfDay from});
+}
+
+/// @nodoc
+class __$FromChangedCopyWithImpl<$Res> extends _$RoomFormEventCopyWithImpl<$Res>
+    implements _$FromChangedCopyWith<$Res> {
+  __$FromChangedCopyWithImpl(
+      _FromChanged _value, $Res Function(_FromChanged) _then)
+      : super(_value, (v) => _then(v as _FromChanged));
+
+  @override
+  _FromChanged get _value => super._value as _FromChanged;
+
+  @override
+  $Res call({
+    Object from = freezed,
+  }) {
+    return _then(_FromChanged(
+      from == freezed ? _value.from : from as TimeOfDay,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_FromChanged implements _FromChanged {
+  const _$_FromChanged(this.from) : assert(from != null);
+
+  @override
+  final TimeOfDay from;
+
+  @override
+  String toString() {
+    return 'RoomFormEvent.fromChanged(from: $from)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _FromChanged &&
+            (identical(other.from, from) ||
+                const DeepCollectionEquality().equals(other.from, from)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(from);
+
+  @JsonKey(ignore: true)
+  @override
+  _$FromChangedCopyWith<_FromChanged> get copyWith =>
+      __$FromChangedCopyWithImpl<_FromChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initialized(Option<Room> initialRoom),
+    @required TResult typeChanged(RoomType type),
+    @required TResult nameChanged(String name),
+    @required TResult dateChanged(DateTime date),
+    @required TResult fromChanged(TimeOfDay from),
+    @required TResult toChanged(TimeOfDay to),
+    @required TResult descriptionChanged(String description),
+    @required TResult inviteOnlyChanged(bool inviteOnly),
+    @required TResult saved(),
+  }) {
+    assert(initialized != null);
+    assert(typeChanged != null);
+    assert(nameChanged != null);
+    assert(dateChanged != null);
+    assert(fromChanged != null);
+    assert(toChanged != null);
+    assert(descriptionChanged != null);
+    assert(inviteOnlyChanged != null);
+    assert(saved != null);
+    return fromChanged(from);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<Room> initialRoom),
+    TResult typeChanged(RoomType type),
+    TResult nameChanged(String name),
+    TResult dateChanged(DateTime date),
+    TResult fromChanged(TimeOfDay from),
+    TResult toChanged(TimeOfDay to),
+    TResult descriptionChanged(String description),
+    TResult inviteOnlyChanged(bool inviteOnly),
+    TResult saved(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromChanged != null) {
+      return fromChanged(from);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initialized(_Initialized value),
+    @required TResult typeChanged(_TypeChanged value),
+    @required TResult nameChanged(_NameChanged value),
+    @required TResult dateChanged(_DateChanged value),
+    @required TResult fromChanged(_FromChanged value),
+    @required TResult toChanged(_ToChanged value),
+    @required TResult descriptionChanged(_DescriptionChanged value),
+    @required TResult inviteOnlyChanged(_InviteOnlyChanged value),
+    @required TResult saved(_Saved value),
+  }) {
+    assert(initialized != null);
+    assert(typeChanged != null);
+    assert(nameChanged != null);
+    assert(dateChanged != null);
+    assert(fromChanged != null);
+    assert(toChanged != null);
+    assert(descriptionChanged != null);
+    assert(inviteOnlyChanged != null);
+    assert(saved != null);
+    return fromChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initialized(_Initialized value),
+    TResult typeChanged(_TypeChanged value),
+    TResult nameChanged(_NameChanged value),
+    TResult dateChanged(_DateChanged value),
+    TResult fromChanged(_FromChanged value),
+    TResult toChanged(_ToChanged value),
+    TResult descriptionChanged(_DescriptionChanged value),
+    TResult inviteOnlyChanged(_InviteOnlyChanged value),
+    TResult saved(_Saved value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromChanged != null) {
+      return fromChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FromChanged implements RoomFormEvent {
+  const factory _FromChanged(TimeOfDay from) = _$_FromChanged;
+
+  TimeOfDay get from;
+  @JsonKey(ignore: true)
+  _$FromChangedCopyWith<_FromChanged> get copyWith;
+}
+
+/// @nodoc
+abstract class _$ToChangedCopyWith<$Res> {
+  factory _$ToChangedCopyWith(
+          _ToChanged value, $Res Function(_ToChanged) then) =
+      __$ToChangedCopyWithImpl<$Res>;
+  $Res call({TimeOfDay to});
+}
+
+/// @nodoc
+class __$ToChangedCopyWithImpl<$Res> extends _$RoomFormEventCopyWithImpl<$Res>
+    implements _$ToChangedCopyWith<$Res> {
+  __$ToChangedCopyWithImpl(_ToChanged _value, $Res Function(_ToChanged) _then)
+      : super(_value, (v) => _then(v as _ToChanged));
+
+  @override
+  _ToChanged get _value => super._value as _ToChanged;
+
+  @override
+  $Res call({
+    Object to = freezed,
+  }) {
+    return _then(_ToChanged(
+      to == freezed ? _value.to : to as TimeOfDay,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_ToChanged implements _ToChanged {
+  const _$_ToChanged(this.to) : assert(to != null);
+
+  @override
+  final TimeOfDay to;
+
+  @override
+  String toString() {
+    return 'RoomFormEvent.toChanged(to: $to)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ToChanged &&
+            (identical(other.to, to) ||
+                const DeepCollectionEquality().equals(other.to, to)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(to);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ToChangedCopyWith<_ToChanged> get copyWith =>
+      __$ToChangedCopyWithImpl<_ToChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initialized(Option<Room> initialRoom),
+    @required TResult typeChanged(RoomType type),
+    @required TResult nameChanged(String name),
+    @required TResult dateChanged(DateTime date),
+    @required TResult fromChanged(TimeOfDay from),
+    @required TResult toChanged(TimeOfDay to),
+    @required TResult descriptionChanged(String description),
+    @required TResult inviteOnlyChanged(bool inviteOnly),
+    @required TResult saved(),
+  }) {
+    assert(initialized != null);
+    assert(typeChanged != null);
+    assert(nameChanged != null);
+    assert(dateChanged != null);
+    assert(fromChanged != null);
+    assert(toChanged != null);
+    assert(descriptionChanged != null);
+    assert(inviteOnlyChanged != null);
+    assert(saved != null);
+    return toChanged(to);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<Room> initialRoom),
+    TResult typeChanged(RoomType type),
+    TResult nameChanged(String name),
+    TResult dateChanged(DateTime date),
+    TResult fromChanged(TimeOfDay from),
+    TResult toChanged(TimeOfDay to),
+    TResult descriptionChanged(String description),
+    TResult inviteOnlyChanged(bool inviteOnly),
+    TResult saved(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (toChanged != null) {
+      return toChanged(to);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initialized(_Initialized value),
+    @required TResult typeChanged(_TypeChanged value),
+    @required TResult nameChanged(_NameChanged value),
+    @required TResult dateChanged(_DateChanged value),
+    @required TResult fromChanged(_FromChanged value),
+    @required TResult toChanged(_ToChanged value),
+    @required TResult descriptionChanged(_DescriptionChanged value),
+    @required TResult inviteOnlyChanged(_InviteOnlyChanged value),
+    @required TResult saved(_Saved value),
+  }) {
+    assert(initialized != null);
+    assert(typeChanged != null);
+    assert(nameChanged != null);
+    assert(dateChanged != null);
+    assert(fromChanged != null);
+    assert(toChanged != null);
+    assert(descriptionChanged != null);
+    assert(inviteOnlyChanged != null);
+    assert(saved != null);
+    return toChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initialized(_Initialized value),
+    TResult typeChanged(_TypeChanged value),
+    TResult nameChanged(_NameChanged value),
+    TResult dateChanged(_DateChanged value),
+    TResult fromChanged(_FromChanged value),
+    TResult toChanged(_ToChanged value),
+    TResult descriptionChanged(_DescriptionChanged value),
+    TResult inviteOnlyChanged(_InviteOnlyChanged value),
+    TResult saved(_Saved value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (toChanged != null) {
+      return toChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ToChanged implements RoomFormEvent {
+  const factory _ToChanged(TimeOfDay to) = _$_ToChanged;
+
+  TimeOfDay get to;
+  @JsonKey(ignore: true)
+  _$ToChangedCopyWith<_ToChanged> get copyWith;
 }
 
 /// @nodoc
@@ -790,7 +1163,9 @@ class _$_DescriptionChanged implements _DescriptionChanged {
     @required TResult initialized(Option<Room> initialRoom),
     @required TResult typeChanged(RoomType type),
     @required TResult nameChanged(String name),
-    @required TResult timeChanged(RoomTime time),
+    @required TResult dateChanged(DateTime date),
+    @required TResult fromChanged(TimeOfDay from),
+    @required TResult toChanged(TimeOfDay to),
     @required TResult descriptionChanged(String description),
     @required TResult inviteOnlyChanged(bool inviteOnly),
     @required TResult saved(),
@@ -798,7 +1173,9 @@ class _$_DescriptionChanged implements _DescriptionChanged {
     assert(initialized != null);
     assert(typeChanged != null);
     assert(nameChanged != null);
-    assert(timeChanged != null);
+    assert(dateChanged != null);
+    assert(fromChanged != null);
+    assert(toChanged != null);
     assert(descriptionChanged != null);
     assert(inviteOnlyChanged != null);
     assert(saved != null);
@@ -811,7 +1188,9 @@ class _$_DescriptionChanged implements _DescriptionChanged {
     TResult initialized(Option<Room> initialRoom),
     TResult typeChanged(RoomType type),
     TResult nameChanged(String name),
-    TResult timeChanged(RoomTime time),
+    TResult dateChanged(DateTime date),
+    TResult fromChanged(TimeOfDay from),
+    TResult toChanged(TimeOfDay to),
     TResult descriptionChanged(String description),
     TResult inviteOnlyChanged(bool inviteOnly),
     TResult saved(),
@@ -830,7 +1209,9 @@ class _$_DescriptionChanged implements _DescriptionChanged {
     @required TResult initialized(_Initialized value),
     @required TResult typeChanged(_TypeChanged value),
     @required TResult nameChanged(_NameChanged value),
-    @required TResult timeChanged(_TimeChanged value),
+    @required TResult dateChanged(_DateChanged value),
+    @required TResult fromChanged(_FromChanged value),
+    @required TResult toChanged(_ToChanged value),
     @required TResult descriptionChanged(_DescriptionChanged value),
     @required TResult inviteOnlyChanged(_InviteOnlyChanged value),
     @required TResult saved(_Saved value),
@@ -838,7 +1219,9 @@ class _$_DescriptionChanged implements _DescriptionChanged {
     assert(initialized != null);
     assert(typeChanged != null);
     assert(nameChanged != null);
-    assert(timeChanged != null);
+    assert(dateChanged != null);
+    assert(fromChanged != null);
+    assert(toChanged != null);
     assert(descriptionChanged != null);
     assert(inviteOnlyChanged != null);
     assert(saved != null);
@@ -851,7 +1234,9 @@ class _$_DescriptionChanged implements _DescriptionChanged {
     TResult initialized(_Initialized value),
     TResult typeChanged(_TypeChanged value),
     TResult nameChanged(_NameChanged value),
-    TResult timeChanged(_TimeChanged value),
+    TResult dateChanged(_DateChanged value),
+    TResult fromChanged(_FromChanged value),
+    TResult toChanged(_ToChanged value),
     TResult descriptionChanged(_DescriptionChanged value),
     TResult inviteOnlyChanged(_InviteOnlyChanged value),
     TResult saved(_Saved value),
@@ -938,7 +1323,9 @@ class _$_InviteOnlyChanged implements _InviteOnlyChanged {
     @required TResult initialized(Option<Room> initialRoom),
     @required TResult typeChanged(RoomType type),
     @required TResult nameChanged(String name),
-    @required TResult timeChanged(RoomTime time),
+    @required TResult dateChanged(DateTime date),
+    @required TResult fromChanged(TimeOfDay from),
+    @required TResult toChanged(TimeOfDay to),
     @required TResult descriptionChanged(String description),
     @required TResult inviteOnlyChanged(bool inviteOnly),
     @required TResult saved(),
@@ -946,7 +1333,9 @@ class _$_InviteOnlyChanged implements _InviteOnlyChanged {
     assert(initialized != null);
     assert(typeChanged != null);
     assert(nameChanged != null);
-    assert(timeChanged != null);
+    assert(dateChanged != null);
+    assert(fromChanged != null);
+    assert(toChanged != null);
     assert(descriptionChanged != null);
     assert(inviteOnlyChanged != null);
     assert(saved != null);
@@ -959,7 +1348,9 @@ class _$_InviteOnlyChanged implements _InviteOnlyChanged {
     TResult initialized(Option<Room> initialRoom),
     TResult typeChanged(RoomType type),
     TResult nameChanged(String name),
-    TResult timeChanged(RoomTime time),
+    TResult dateChanged(DateTime date),
+    TResult fromChanged(TimeOfDay from),
+    TResult toChanged(TimeOfDay to),
     TResult descriptionChanged(String description),
     TResult inviteOnlyChanged(bool inviteOnly),
     TResult saved(),
@@ -978,7 +1369,9 @@ class _$_InviteOnlyChanged implements _InviteOnlyChanged {
     @required TResult initialized(_Initialized value),
     @required TResult typeChanged(_TypeChanged value),
     @required TResult nameChanged(_NameChanged value),
-    @required TResult timeChanged(_TimeChanged value),
+    @required TResult dateChanged(_DateChanged value),
+    @required TResult fromChanged(_FromChanged value),
+    @required TResult toChanged(_ToChanged value),
     @required TResult descriptionChanged(_DescriptionChanged value),
     @required TResult inviteOnlyChanged(_InviteOnlyChanged value),
     @required TResult saved(_Saved value),
@@ -986,7 +1379,9 @@ class _$_InviteOnlyChanged implements _InviteOnlyChanged {
     assert(initialized != null);
     assert(typeChanged != null);
     assert(nameChanged != null);
-    assert(timeChanged != null);
+    assert(dateChanged != null);
+    assert(fromChanged != null);
+    assert(toChanged != null);
     assert(descriptionChanged != null);
     assert(inviteOnlyChanged != null);
     assert(saved != null);
@@ -999,7 +1394,9 @@ class _$_InviteOnlyChanged implements _InviteOnlyChanged {
     TResult initialized(_Initialized value),
     TResult typeChanged(_TypeChanged value),
     TResult nameChanged(_NameChanged value),
-    TResult timeChanged(_TimeChanged value),
+    TResult dateChanged(_DateChanged value),
+    TResult fromChanged(_FromChanged value),
+    TResult toChanged(_ToChanged value),
     TResult descriptionChanged(_DescriptionChanged value),
     TResult inviteOnlyChanged(_InviteOnlyChanged value),
     TResult saved(_Saved value),
@@ -1060,7 +1457,9 @@ class _$_Saved implements _Saved {
     @required TResult initialized(Option<Room> initialRoom),
     @required TResult typeChanged(RoomType type),
     @required TResult nameChanged(String name),
-    @required TResult timeChanged(RoomTime time),
+    @required TResult dateChanged(DateTime date),
+    @required TResult fromChanged(TimeOfDay from),
+    @required TResult toChanged(TimeOfDay to),
     @required TResult descriptionChanged(String description),
     @required TResult inviteOnlyChanged(bool inviteOnly),
     @required TResult saved(),
@@ -1068,7 +1467,9 @@ class _$_Saved implements _Saved {
     assert(initialized != null);
     assert(typeChanged != null);
     assert(nameChanged != null);
-    assert(timeChanged != null);
+    assert(dateChanged != null);
+    assert(fromChanged != null);
+    assert(toChanged != null);
     assert(descriptionChanged != null);
     assert(inviteOnlyChanged != null);
     assert(saved != null);
@@ -1081,7 +1482,9 @@ class _$_Saved implements _Saved {
     TResult initialized(Option<Room> initialRoom),
     TResult typeChanged(RoomType type),
     TResult nameChanged(String name),
-    TResult timeChanged(RoomTime time),
+    TResult dateChanged(DateTime date),
+    TResult fromChanged(TimeOfDay from),
+    TResult toChanged(TimeOfDay to),
     TResult descriptionChanged(String description),
     TResult inviteOnlyChanged(bool inviteOnly),
     TResult saved(),
@@ -1100,7 +1503,9 @@ class _$_Saved implements _Saved {
     @required TResult initialized(_Initialized value),
     @required TResult typeChanged(_TypeChanged value),
     @required TResult nameChanged(_NameChanged value),
-    @required TResult timeChanged(_TimeChanged value),
+    @required TResult dateChanged(_DateChanged value),
+    @required TResult fromChanged(_FromChanged value),
+    @required TResult toChanged(_ToChanged value),
     @required TResult descriptionChanged(_DescriptionChanged value),
     @required TResult inviteOnlyChanged(_InviteOnlyChanged value),
     @required TResult saved(_Saved value),
@@ -1108,7 +1513,9 @@ class _$_Saved implements _Saved {
     assert(initialized != null);
     assert(typeChanged != null);
     assert(nameChanged != null);
-    assert(timeChanged != null);
+    assert(dateChanged != null);
+    assert(fromChanged != null);
+    assert(toChanged != null);
     assert(descriptionChanged != null);
     assert(inviteOnlyChanged != null);
     assert(saved != null);
@@ -1121,7 +1528,9 @@ class _$_Saved implements _Saved {
     TResult initialized(_Initialized value),
     TResult typeChanged(_TypeChanged value),
     TResult nameChanged(_NameChanged value),
-    TResult timeChanged(_TimeChanged value),
+    TResult dateChanged(_DateChanged value),
+    TResult fromChanged(_FromChanged value),
+    TResult toChanged(_ToChanged value),
     TResult descriptionChanged(_DescriptionChanged value),
     TResult inviteOnlyChanged(_InviteOnlyChanged value),
     TResult saved(_Saved value),

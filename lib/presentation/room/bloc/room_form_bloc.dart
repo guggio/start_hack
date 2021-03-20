@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
@@ -12,7 +13,6 @@ import 'package:start_hack/domain/room/i_room_repository.dart';
 import 'package:start_hack/domain/room/room.dart';
 import 'package:start_hack/domain/room/room_description.dart';
 import 'package:start_hack/domain/room/room_name.dart';
-import 'package:start_hack/domain/room/room_time.dart';
 import 'package:start_hack/domain/room/room_type.dart';
 
 part 'room_form_bloc.freezed.dart';
@@ -58,7 +58,6 @@ class RoomFormBloc extends Bloc<RoomFormEvent, RoomFormState> {
                 newName.isNotEmpty() && state.room.description.isNotEmpty(),
           );
         },
-        timeChanged: (e) async* {},
         descriptionChanged: (e) async* {
           var newDescription = RoomDescription(e.description);
           yield state.copyWith(
@@ -67,6 +66,15 @@ class RoomFormBloc extends Bloc<RoomFormEvent, RoomFormState> {
             informationComplete:
                 newDescription.isNotEmpty() && state.room.name.isNotEmpty(),
           );
+        },
+        dateChanged: (e) async* {
+          yield state.copyWith.room.time(date: e.date);
+        },
+        fromChanged: (e) async* {
+          yield state.copyWith.room.time.period(from: e.from);
+        },
+        toChanged: (e) async* {
+          yield state.copyWith.room.time.period(to: e.to);
         },
         inviteOnlyChanged: (e) async* {
           yield state.copyWith.room(inviteOnly: e.inviteOnly);
