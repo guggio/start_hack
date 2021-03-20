@@ -1,10 +1,10 @@
 <h1> <div align="center"> START HACK 2021 </div> </h1>
 
 <h5> <div align="center"> The beginning of a wonderful journey for the START HACK team of: </div> </h1>
-<h6> <div align="center"> Alberto </div> </h6>
-<h6> <div align="center"> Michael </div> </h6>
-<h6> <div align="center"> Sherry </div> </h6>
-<h6> <div align="center"> Sebastian </div> </h6>
+<h6> <div align="center"> Alberto [Italy] </div> </h6>
+<h6> <div align="center"> Michael [Ireland] </div> </h6>
+<h6> <div align="center"> Sherry [India] </div> </h6>
+<h6> <div align="center"> Sebastian [Switzerland] </div> </h6>
 <hr>
 <br>
 
