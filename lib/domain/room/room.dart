@@ -38,7 +38,7 @@ abstract class Room implements _$Room {
     @required BreakDuration breakDuration,
     @required RoomDescription description,
     @required bool inviteOnly,
-    @required List<UniqueId> subscribers,
+    // @required List<UniqueId> subscribers,
   }) = _Room;
 
   factory Room.empty() => Room(
@@ -47,11 +47,11 @@ abstract class Room implements _$Room {
         type: RoomType.coffeeBreak,
         name: RoomName(""),
         date: DateTime.now(),
-        from: TimeOfDay(hour: 0, minute: 0),
+        from: TimeOfDay(hour: 10, minute: 0),
         breakDuration: BreakDuration.fifteen,
         description: RoomDescription(""),
         inviteOnly: false,
-        subscribers: [],
+        // subscribers: [],
       );
 
   Option<ValueFailure<dynamic>> get failureOption {

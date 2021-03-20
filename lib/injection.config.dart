@@ -13,12 +13,13 @@ import 'package:injectable/injectable.dart' as _i2;
 import 'domain/authentication/i_auth_facade.dart' as _i6;
 import 'domain/room/i_room_repository.dart' as _i8;
 import 'infrastructure/authentication/firebase_auth_facade.dart' as _i7;
-import 'infrastructure/core/firebase_injectable_module.dart' as _i13;
+import 'infrastructure/core/firebase_injectable_module.dart' as _i14;
 import 'infrastructure/room/room_repository.dart' as _i9;
-import 'presentation/room/bloc/room_form_bloc.dart' as _i10;
-import 'presentation/signin/auth/auth_bloc.dart' as _i12;
+import 'presentation/room/room_form/bloc/room_form_bloc.dart' as _i10;
+import 'presentation/room/room_view/bloc/room_view_bloc.dart' as _i11;
+import 'presentation/signin/auth/auth_bloc.dart' as _i13;
 import 'presentation/signin/bloc/sign_in_form_bloc.dart'
-    as _i11; // ignore_for_file: unnecessary_lambdas
+    as _i12; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -38,10 +39,12 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       () => _i9.RoomRepository(get<_i4.FirebaseFirestore>()));
   gh.factory<_i10.RoomFormBloc>(
       () => _i10.RoomFormBloc(get<_i8.IRoomRepository>()));
-  gh.factory<_i11.SignInFormBloc>(
-      () => _i11.SignInFormBloc(get<_i6.IAuthFacade>()));
-  gh.factory<_i12.AuthBloc>(() => _i12.AuthBloc(get<_i6.IAuthFacade>()));
+  gh.factory<_i11.RoomViewBloc>(
+      () => _i11.RoomViewBloc(get<_i8.IRoomRepository>()));
+  gh.factory<_i12.SignInFormBloc>(
+      () => _i12.SignInFormBloc(get<_i6.IAuthFacade>()));
+  gh.factory<_i13.AuthBloc>(() => _i13.AuthBloc(get<_i6.IAuthFacade>()));
   return get;
 }
 
-class _$FirebaseInjectableModule extends _i13.FirebaseInjectableModule {}
+class _$FirebaseInjectableModule extends _i14.FirebaseInjectableModule {}

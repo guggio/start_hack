@@ -12,6 +12,8 @@
  *
  */
 
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
@@ -46,19 +48,22 @@ class RoomRepository implements IRoomRepository {
 
   @override
   Stream<Either<LoadingFailure, List<Room>>> loadRooms() async* {
-    final roomCollection = _firestore.collection('rooms');
-    yield* roomCollection
+    yield* _firestore
+        .collection("rooms")
         .snapshots()
         .map((querySnapshot) => right<LoadingFailure, List<Room>>(querySnapshot
             .docs
-            .map((doc) => RoomDto.fromFirestore(doc).toDomain())))
-        .handleError((e) {
-      if (e is FirebaseException && e.message.contains('PERMISSION_DENIED')) {
-        return left(const LoadingFailure.insufficientPermission());
-      } else {
-        return left(const LoadingFailure.unexpected());
-      }
-    });
+            .map((doc) => RoomDto.fromFirestore(doc).toDomain()).toList()))
+        .transform(StreamTransformer.fromHandlers(
+      handleError: (error, stacktrace, sink) {
+        if (error is FirebaseException &&
+            error.message.contains('PERMISSION_DENIED')) {
+          return left(const LoadingFailure.insufficientPermission());
+        } else {
+          return left(const LoadingFailure.unexpected());
+        }
+      },
+    ));
   }
 
   @override

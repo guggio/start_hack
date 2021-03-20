@@ -16,7 +16,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:start_hack/domain/room/period.dart';
-import 'package:start_hack/presentation/room/bloc/room_form_bloc.dart';
+import 'package:start_hack/presentation/room/room_form/bloc/room_form_bloc.dart';
 
 class RoomDateField extends StatelessWidget {
   @override

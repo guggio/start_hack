@@ -23,8 +23,7 @@ class _$RoomTearOff {
       @required TimeOfDay from,
       @required BreakDuration breakDuration,
       @required RoomDescription description,
-      @required bool inviteOnly,
-      @required List<UniqueId> subscribers}) {
+      @required bool inviteOnly}) {
     return _Room(
       id: id,
       creator: creator,
@@ -35,7 +34,6 @@ class _$RoomTearOff {
       breakDuration: breakDuration,
       description: description,
       inviteOnly: inviteOnly,
-      subscribers: subscribers,
     );
   }
 }
@@ -55,7 +53,6 @@ mixin _$Room {
   BreakDuration get breakDuration;
   RoomDescription get description;
   bool get inviteOnly;
-  List<UniqueId> get subscribers;
 
   @JsonKey(ignore: true)
   $RoomCopyWith<Room> get copyWith;
@@ -74,8 +71,7 @@ abstract class $RoomCopyWith<$Res> {
       TimeOfDay from,
       BreakDuration breakDuration,
       RoomDescription description,
-      bool inviteOnly,
-      List<UniqueId> subscribers});
+      bool inviteOnly});
 }
 
 /// @nodoc
@@ -97,7 +93,6 @@ class _$RoomCopyWithImpl<$Res> implements $RoomCopyWith<$Res> {
     Object breakDuration = freezed,
     Object description = freezed,
     Object inviteOnly = freezed,
-    Object subscribers = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as UniqueId,
@@ -114,9 +109,6 @@ class _$RoomCopyWithImpl<$Res> implements $RoomCopyWith<$Res> {
           : description as RoomDescription,
       inviteOnly:
           inviteOnly == freezed ? _value.inviteOnly : inviteOnly as bool,
-      subscribers: subscribers == freezed
-          ? _value.subscribers
-          : subscribers as List<UniqueId>,
     ));
   }
 }
@@ -135,8 +127,7 @@ abstract class _$RoomCopyWith<$Res> implements $RoomCopyWith<$Res> {
       TimeOfDay from,
       BreakDuration breakDuration,
       RoomDescription description,
-      bool inviteOnly,
-      List<UniqueId> subscribers});
+      bool inviteOnly});
 }
 
 /// @nodoc
@@ -159,7 +150,6 @@ class __$RoomCopyWithImpl<$Res> extends _$RoomCopyWithImpl<$Res>
     Object breakDuration = freezed,
     Object description = freezed,
     Object inviteOnly = freezed,
-    Object subscribers = freezed,
   }) {
     return _then(_Room(
       id: id == freezed ? _value.id : id as UniqueId,
@@ -176,9 +166,6 @@ class __$RoomCopyWithImpl<$Res> extends _$RoomCopyWithImpl<$Res>
           : description as RoomDescription,
       inviteOnly:
           inviteOnly == freezed ? _value.inviteOnly : inviteOnly as bool,
-      subscribers: subscribers == freezed
-          ? _value.subscribers
-          : subscribers as List<UniqueId>,
     ));
   }
 }
@@ -194,8 +181,7 @@ class _$_Room extends _Room {
       @required this.from,
       @required this.breakDuration,
       @required this.description,
-      @required this.inviteOnly,
-      @required this.subscribers})
+      @required this.inviteOnly})
       : assert(id != null),
         assert(creator != null),
         assert(type != null),
@@ -205,7 +191,6 @@ class _$_Room extends _Room {
         assert(breakDuration != null),
         assert(description != null),
         assert(inviteOnly != null),
-        assert(subscribers != null),
         super._();
 
   @override
@@ -226,12 +211,10 @@ class _$_Room extends _Room {
   final RoomDescription description;
   @override
   final bool inviteOnly;
-  @override
-  final List<UniqueId> subscribers;
 
   @override
   String toString() {
-    return 'Room(id: $id, creator: $creator, type: $type, name: $name, date: $date, from: $from, breakDuration: $breakDuration, description: $description, inviteOnly: $inviteOnly, subscribers: $subscribers)';
+    return 'Room(id: $id, creator: $creator, type: $type, name: $name, date: $date, from: $from, breakDuration: $breakDuration, description: $description, inviteOnly: $inviteOnly)';
   }
 
   @override
@@ -259,10 +242,7 @@ class _$_Room extends _Room {
                     .equals(other.description, description)) &&
             (identical(other.inviteOnly, inviteOnly) ||
                 const DeepCollectionEquality()
-                    .equals(other.inviteOnly, inviteOnly)) &&
-            (identical(other.subscribers, subscribers) ||
-                const DeepCollectionEquality()
-                    .equals(other.subscribers, subscribers)));
+                    .equals(other.inviteOnly, inviteOnly)));
   }
 
   @override
@@ -276,8 +256,7 @@ class _$_Room extends _Room {
       const DeepCollectionEquality().hash(from) ^
       const DeepCollectionEquality().hash(breakDuration) ^
       const DeepCollectionEquality().hash(description) ^
-      const DeepCollectionEquality().hash(inviteOnly) ^
-      const DeepCollectionEquality().hash(subscribers);
+      const DeepCollectionEquality().hash(inviteOnly);
 
   @JsonKey(ignore: true)
   @override
@@ -296,8 +275,7 @@ abstract class _Room extends Room {
       @required TimeOfDay from,
       @required BreakDuration breakDuration,
       @required RoomDescription description,
-      @required bool inviteOnly,
-      @required List<UniqueId> subscribers}) = _$_Room;
+      @required bool inviteOnly}) = _$_Room;
 
   @override
   UniqueId get id;
@@ -317,8 +295,6 @@ abstract class _Room extends Room {
   RoomDescription get description;
   @override
   bool get inviteOnly;
-  @override
-  List<UniqueId> get subscribers;
   @override
   @JsonKey(ignore: true)
   _$RoomCopyWith<_Room> get copyWith;

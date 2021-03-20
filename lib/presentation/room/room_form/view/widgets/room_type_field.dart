@@ -1,11 +1,11 @@
 /*
- * break_duration_field.dart  
+ * room_type_field.dart  
  *
  * Creator:
- * 3/20/21 8:23 PM sebastianguggisberg
+ * 3/20/21 3:04 PM sebastianguggisberg
  *
  * Maintainer:
- * 3/20/21 8:23 PM sebastianguggisberg
+ * 3/20/21 3:04 PM sebastianguggisberg
  *
  * Last Modification:
  * $Id: $
@@ -14,10 +14,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:start_hack/domain/room/break_duration.dart';
-import 'package:start_hack/presentation/room/bloc/room_form_bloc.dart';
+import 'package:start_hack/domain/room/room_type.dart';
+import 'package:start_hack/presentation/room/room_form/bloc/room_form_bloc.dart';
 
-class BreakDurationField extends StatelessWidget {
+class RoomTypeField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<RoomFormBloc, RoomFormState>(
@@ -26,7 +26,7 @@ class BreakDurationField extends StatelessWidget {
         children: [
           Container(
             padding: const EdgeInsets.only(bottom: 8),
-            child: const Text("Break duration"),
+            child: const Text("Type of room"),
           ),
           Container(
             height: 50,
@@ -37,16 +37,16 @@ class BreakDurationField extends StatelessWidget {
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
               shrinkWrap: true,
-              itemCount: BreakDuration.values.length,
+              itemCount: RoomType.values.length,
               itemBuilder: (context, index) {
-                var breakDuration = BreakDuration.values[index];
+                var type = RoomType.values[index];
                 return GestureDetector(
                   onTap: () {
                     context
                         .read<RoomFormBloc>()
-                        .add(RoomFormEvent.breakDurationChanged(breakDuration));
+                        .add(RoomFormEvent.typeChanged(type));
                   },
-                  child: buildBox(state, breakDuration),
+                  child: buildBox(state, type),
                 );
               },
               separatorBuilder: (context, index) => const SizedBox(width: 4),
@@ -57,10 +57,10 @@ class BreakDurationField extends StatelessWidget {
     );
   }
 
-  Widget buildBox(RoomFormState state, BreakDuration breakDuration) {
-    final bool selected = state.room.breakDuration == breakDuration;
+  Widget buildBox(RoomFormState state, RoomType type) {
+    final bool selected = state.room.type == type;
     return Container(
-      width: 133.33,
+      width: 100,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(4),
         border: Border.all(
@@ -69,7 +69,7 @@ class BreakDurationField extends StatelessWidget {
       padding: EdgeInsets.all(4),
       alignment: Alignment.center,
       child: Text(
-        breakDuration.getDisplayName(),
+        type.getDisplayName(),
         style: selected
             ? TextStyle(
                 fontSize: 14,

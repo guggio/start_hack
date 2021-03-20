@@ -13,24 +13,17 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:start_hack/presentation/room/view/room_form_page.dart';
+import 'package:start_hack/presentation/room/room_view/view/room_view.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('ROOOOOMS'),
+        backgroundColor: Colors.white,
+        elevation: 0,
       ),
-      body: Center(
-        child: Text('middle'),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => RoomFormPage(editedRoom: null))),
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      body: RoomView(),
     );
   }
 }

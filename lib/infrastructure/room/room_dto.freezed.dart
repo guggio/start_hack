@@ -26,8 +26,7 @@ class _$RoomDtoTearOff {
       @required List<int> from,
       @required String breakDuration,
       @required String description,
-      @required bool inviteOnly,
-      @required List<String> subscribers}) {
+      @required bool inviteOnly}) {
     return _RoomDto(
       id: id,
       creator: creator,
@@ -38,7 +37,6 @@ class _$RoomDtoTearOff {
       breakDuration: breakDuration,
       description: description,
       inviteOnly: inviteOnly,
-      subscribers: subscribers,
     );
   }
 
@@ -64,7 +62,6 @@ mixin _$RoomDto {
   String get breakDuration;
   String get description;
   bool get inviteOnly;
-  List<String> get subscribers;
 
   Map<String, dynamic> toJson();
   @JsonKey(ignore: true)
@@ -84,8 +81,7 @@ abstract class $RoomDtoCopyWith<$Res> {
       List<int> from,
       String breakDuration,
       String description,
-      bool inviteOnly,
-      List<String> subscribers});
+      bool inviteOnly});
 }
 
 /// @nodoc
@@ -107,7 +103,6 @@ class _$RoomDtoCopyWithImpl<$Res> implements $RoomDtoCopyWith<$Res> {
     Object breakDuration = freezed,
     Object description = freezed,
     Object inviteOnly = freezed,
-    Object subscribers = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as String,
@@ -125,9 +120,6 @@ class _$RoomDtoCopyWithImpl<$Res> implements $RoomDtoCopyWith<$Res> {
           description == freezed ? _value.description : description as String,
       inviteOnly:
           inviteOnly == freezed ? _value.inviteOnly : inviteOnly as bool,
-      subscribers: subscribers == freezed
-          ? _value.subscribers
-          : subscribers as List<String>,
     ));
   }
 }
@@ -146,8 +138,7 @@ abstract class _$RoomDtoCopyWith<$Res> implements $RoomDtoCopyWith<$Res> {
       List<int> from,
       String breakDuration,
       String description,
-      bool inviteOnly,
-      List<String> subscribers});
+      bool inviteOnly});
 }
 
 /// @nodoc
@@ -170,7 +161,6 @@ class __$RoomDtoCopyWithImpl<$Res> extends _$RoomDtoCopyWithImpl<$Res>
     Object breakDuration = freezed,
     Object description = freezed,
     Object inviteOnly = freezed,
-    Object subscribers = freezed,
   }) {
     return _then(_RoomDto(
       id: id == freezed ? _value.id : id as String,
@@ -188,9 +178,6 @@ class __$RoomDtoCopyWithImpl<$Res> extends _$RoomDtoCopyWithImpl<$Res>
           description == freezed ? _value.description : description as String,
       inviteOnly:
           inviteOnly == freezed ? _value.inviteOnly : inviteOnly as bool,
-      subscribers: subscribers == freezed
-          ? _value.subscribers
-          : subscribers as List<String>,
     ));
   }
 }
@@ -208,8 +195,7 @@ class _$_RoomDto extends _RoomDto {
       @required this.from,
       @required this.breakDuration,
       @required this.description,
-      @required this.inviteOnly,
-      @required this.subscribers})
+      @required this.inviteOnly})
       : assert(creator != null),
         assert(type != null),
         assert(name != null),
@@ -218,7 +204,6 @@ class _$_RoomDto extends _RoomDto {
         assert(breakDuration != null),
         assert(description != null),
         assert(inviteOnly != null),
-        assert(subscribers != null),
         super._();
 
   factory _$_RoomDto.fromJson(Map<String, dynamic> json) =>
@@ -243,12 +228,10 @@ class _$_RoomDto extends _RoomDto {
   final String description;
   @override
   final bool inviteOnly;
-  @override
-  final List<String> subscribers;
 
   @override
   String toString() {
-    return 'RoomDto(id: $id, creator: $creator, type: $type, name: $name, dateMicroseconds: $dateMicroseconds, from: $from, breakDuration: $breakDuration, description: $description, inviteOnly: $inviteOnly, subscribers: $subscribers)';
+    return 'RoomDto(id: $id, creator: $creator, type: $type, name: $name, dateMicroseconds: $dateMicroseconds, from: $from, breakDuration: $breakDuration, description: $description, inviteOnly: $inviteOnly)';
   }
 
   @override
@@ -277,10 +260,7 @@ class _$_RoomDto extends _RoomDto {
                     .equals(other.description, description)) &&
             (identical(other.inviteOnly, inviteOnly) ||
                 const DeepCollectionEquality()
-                    .equals(other.inviteOnly, inviteOnly)) &&
-            (identical(other.subscribers, subscribers) ||
-                const DeepCollectionEquality()
-                    .equals(other.subscribers, subscribers)));
+                    .equals(other.inviteOnly, inviteOnly)));
   }
 
   @override
@@ -294,8 +274,7 @@ class _$_RoomDto extends _RoomDto {
       const DeepCollectionEquality().hash(from) ^
       const DeepCollectionEquality().hash(breakDuration) ^
       const DeepCollectionEquality().hash(description) ^
-      const DeepCollectionEquality().hash(inviteOnly) ^
-      const DeepCollectionEquality().hash(subscribers);
+      const DeepCollectionEquality().hash(inviteOnly);
 
   @JsonKey(ignore: true)
   @override
@@ -319,8 +298,7 @@ abstract class _RoomDto extends RoomDto {
       @required List<int> from,
       @required String breakDuration,
       @required String description,
-      @required bool inviteOnly,
-      @required List<String> subscribers}) = _$_RoomDto;
+      @required bool inviteOnly}) = _$_RoomDto;
 
   factory _RoomDto.fromJson(Map<String, dynamic> json) = _$_RoomDto.fromJson;
 
@@ -343,8 +321,6 @@ abstract class _RoomDto extends RoomDto {
   String get description;
   @override
   bool get inviteOnly;
-  @override
-  List<String> get subscribers;
   @override
   @JsonKey(ignore: true)
   _$RoomDtoCopyWith<_RoomDto> get copyWith;

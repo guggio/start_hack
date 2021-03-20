@@ -41,7 +41,7 @@ abstract class RoomDto implements _$RoomDto {
     @required String breakDuration,
     @required String description,
     @required bool inviteOnly,
-    @required List<String> subscribers,
+    // @required List<String> subscribers,
   }) = _RoomDto;
 
   factory RoomDto.fromDomain(Room room) {
@@ -55,7 +55,7 @@ abstract class RoomDto implements _$RoomDto {
       breakDuration: room.breakDuration.toShortString(),
       description: room.description.getOrCrash(),
       inviteOnly: room.inviteOnly,
-      subscribers: room.subscribers.map((id) => id.value).toList(),
+      // subscribers: room.subscribers.map((id) => id.value).toList(),
     );
   }
 
@@ -70,7 +70,7 @@ abstract class RoomDto implements _$RoomDto {
       name: RoomName(name),
       description: RoomDescription(description),
       inviteOnly: inviteOnly,
-      subscribers: subscribers.map((e) => UniqueId.fromUniqueString(e)),
+      // subscribers: subscribers.map((e) => UniqueId.fromUniqueString(e)),
     );
   }
 

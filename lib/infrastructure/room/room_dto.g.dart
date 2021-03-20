@@ -16,8 +16,6 @@ _$_RoomDto _$_$_RoomDtoFromJson(Map<String, dynamic> json) {
     breakDuration: json['breakDuration'] as String,
     description: json['description'] as String,
     inviteOnly: json['inviteOnly'] as bool,
-    subscribers:
-        (json['subscribers'] as List)?.map((e) => e as String)?.toList(),
   );
 }
 
@@ -31,7 +29,6 @@ Map<String, dynamic> _$_$_RoomDtoToJson(_$_RoomDto instance) =>
       'breakDuration': instance.breakDuration,
       'description': instance.description,
       'inviteOnly': instance.inviteOnly,
-      'subscribers': instance.subscribers,
     };
 
 _$_RoomTimeDto _$_$_RoomTimeDtoFromJson(Map<String, dynamic> json) {

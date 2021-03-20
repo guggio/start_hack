@@ -19,12 +19,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:start_hack/domain/room/room.dart';
 import 'package:start_hack/injection.dart';
 import 'package:start_hack/presentation/core/savings_overlay.dart';
-import 'package:start_hack/presentation/room/bloc/room_form_bloc.dart';
-import 'package:start_hack/presentation/room/view/widgets/break_duration_field.dart';
-import 'package:start_hack/presentation/room/view/widgets/room_date_field.dart';
-import 'package:start_hack/presentation/room/view/widgets/room_description_field.dart';
-import 'package:start_hack/presentation/room/view/widgets/room_name_field.dart';
-import 'package:start_hack/presentation/room/view/widgets/room_type_field.dart';
+import 'package:start_hack/presentation/room/room_form/bloc/room_form_bloc.dart';
+import 'package:start_hack/presentation/room/room_form/view/widgets/break_duration_field.dart';
+import 'package:start_hack/presentation/room/room_form/view/widgets/room_date_field.dart';
+import 'package:start_hack/presentation/room/room_form/view/widgets/room_description_field.dart';
+import 'package:start_hack/presentation/room/room_form/view/widgets/room_name_field.dart';
+import 'package:start_hack/presentation/room/room_form/view/widgets/room_type_field.dart';
 
 class RoomFormPage extends StatelessWidget {
   final Room editedRoom;
@@ -37,7 +37,10 @@ class RoomFormPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+      ),
       body: BlocProvider(
         create: (context) => getIt<RoomFormBloc>()
           ..add(RoomFormEvent.initialized(

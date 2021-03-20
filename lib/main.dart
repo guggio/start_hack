@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:start_hack/injection.dart';
 import 'package:start_hack/presentation/core/splash.dart';
-import 'package:start_hack/presentation/room/view/room_form_page.dart';
+import 'package:start_hack/presentation/room/room_form/view/room_form_page.dart';
 import 'package:start_hack/presentation/signin/auth/auth_bloc.dart';
 
 Future<void> main() async {
