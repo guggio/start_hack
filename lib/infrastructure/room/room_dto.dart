@@ -35,32 +35,42 @@ abstract class RoomDto implements _$RoomDto {
     @required String creator,
     @required String type,
     @required String name,
-    @required RoomTimeDto time,
+    @required int dateMicroseconds,
+    @required List<int> from,
+    @required List<int> to,
     @required String description,
     @required bool inviteOnly,
     @required List<String> subscribers,
   }) = _RoomDto;
 
   factory RoomDto.fromDomain(Room room) {
+    var timeFromRoom = room.time;
     return RoomDto(
       id: room.id.value,
       creator: room.creator.value,
       type: room.type.toString(),
       name: room.name.getOrCrash(),
-      time: RoomTimeDto.fromDomain(room.time),
+      dateMicroseconds: timeFromRoom.date.microsecondsSinceEpoch,
+      from: [timeFromRoom.period.from.hour, timeFromRoom.period.to.minute],
+      to: [timeFromRoom.period.to.hour, timeFromRoom.period.to.minute],
       description: room.description.getOrCrash(),
       inviteOnly: room.inviteOnly,
-      subscribers: room.subscribers.map((id) => id.value),
+      subscribers: room.subscribers.map((id) => id.value).toList(),
     );
   }
 
   Room toDomain() {
+    final fromTime = TimeOfDay(hour: from[0], minute: from[1]);
+    final toTime = TimeOfDay(hour: to[0], minute: to[1]);
     return Room(
       id: UniqueId.fromUniqueString(id),
       creator: UniqueId.fromUniqueString(creator),
       type: RoomTypeHelper.toRoomType(type),
+      time: RoomTime(
+        date: DateTime.fromMicrosecondsSinceEpoch(dateMicroseconds),
+        period: Period(from: fromTime, to: toTime),
+      ),
       name: RoomName(name),
-      time: time.toDomain(),
       description: RoomDescription(description),
       inviteOnly: inviteOnly,
       subscribers: subscribers.map((e) => UniqueId.fromUniqueString(e)),

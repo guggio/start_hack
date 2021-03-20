@@ -17,6 +17,10 @@ import 'package:kt_dart/exception.dart';
 enum RoomType { coffeeBreak, gameTime, discussion }
 
 extension RoomTypeX on RoomType {
+  String toShortString() {
+    return this.toString().split('.').last;
+  }
+
   String getDisplayName() {
     switch (this) {
       case RoomType.coffeeBreak:
@@ -35,7 +39,7 @@ class RoomTypeHelper {
 
   static RoomType toRoomType(String type) {
     for (RoomType roomType in RoomType.values) {
-      if (type == roomType.toString()) {
+      if (type == roomType.toShortString()) {
         return roomType;
       }
     }

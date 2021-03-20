@@ -11,9 +11,9 @@ _$_RoomDto _$_$_RoomDtoFromJson(Map<String, dynamic> json) {
     creator: json['creator'] as String,
     type: json['type'] as String,
     name: json['name'] as String,
-    time: json['time'] == null
-        ? null
-        : RoomTimeDto.fromJson(json['time'] as Map<String, dynamic>),
+    dateMicroseconds: json['dateMicroseconds'] as int,
+    from: (json['from'] as List)?.map((e) => e as int)?.toList(),
+    to: (json['to'] as List)?.map((e) => e as int)?.toList(),
     description: json['description'] as String,
     inviteOnly: json['inviteOnly'] as bool,
     subscribers:
@@ -26,7 +26,9 @@ Map<String, dynamic> _$_$_RoomDtoToJson(_$_RoomDto instance) =>
       'creator': instance.creator,
       'type': instance.type,
       'name': instance.name,
-      'time': instance.time,
+      'dateMicroseconds': instance.dateMicroseconds,
+      'from': instance.from,
+      'to': instance.to,
       'description': instance.description,
       'inviteOnly': instance.inviteOnly,
       'subscribers': instance.subscribers,

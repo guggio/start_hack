@@ -22,7 +22,9 @@ class _$RoomDtoTearOff {
       @required String creator,
       @required String type,
       @required String name,
-      @required RoomTimeDto time,
+      @required int dateMicroseconds,
+      @required List<int> from,
+      @required List<int> to,
       @required String description,
       @required bool inviteOnly,
       @required List<String> subscribers}) {
@@ -31,7 +33,9 @@ class _$RoomDtoTearOff {
       creator: creator,
       type: type,
       name: name,
-      time: time,
+      dateMicroseconds: dateMicroseconds,
+      from: from,
+      to: to,
       description: description,
       inviteOnly: inviteOnly,
       subscribers: subscribers,
@@ -55,7 +59,9 @@ mixin _$RoomDto {
   String get creator;
   String get type;
   String get name;
-  RoomTimeDto get time;
+  int get dateMicroseconds;
+  List<int> get from;
+  List<int> get to;
   String get description;
   bool get inviteOnly;
   List<String> get subscribers;
@@ -74,12 +80,12 @@ abstract class $RoomDtoCopyWith<$Res> {
       String creator,
       String type,
       String name,
-      RoomTimeDto time,
+      int dateMicroseconds,
+      List<int> from,
+      List<int> to,
       String description,
       bool inviteOnly,
       List<String> subscribers});
-
-  $RoomTimeDtoCopyWith<$Res> get time;
 }
 
 /// @nodoc
@@ -96,7 +102,9 @@ class _$RoomDtoCopyWithImpl<$Res> implements $RoomDtoCopyWith<$Res> {
     Object creator = freezed,
     Object type = freezed,
     Object name = freezed,
-    Object time = freezed,
+    Object dateMicroseconds = freezed,
+    Object from = freezed,
+    Object to = freezed,
     Object description = freezed,
     Object inviteOnly = freezed,
     Object subscribers = freezed,
@@ -106,7 +114,11 @@ class _$RoomDtoCopyWithImpl<$Res> implements $RoomDtoCopyWith<$Res> {
       creator: creator == freezed ? _value.creator : creator as String,
       type: type == freezed ? _value.type : type as String,
       name: name == freezed ? _value.name : name as String,
-      time: time == freezed ? _value.time : time as RoomTimeDto,
+      dateMicroseconds: dateMicroseconds == freezed
+          ? _value.dateMicroseconds
+          : dateMicroseconds as int,
+      from: from == freezed ? _value.from : from as List<int>,
+      to: to == freezed ? _value.to : to as List<int>,
       description:
           description == freezed ? _value.description : description as String,
       inviteOnly:
@@ -115,16 +127,6 @@ class _$RoomDtoCopyWithImpl<$Res> implements $RoomDtoCopyWith<$Res> {
           ? _value.subscribers
           : subscribers as List<String>,
     ));
-  }
-
-  @override
-  $RoomTimeDtoCopyWith<$Res> get time {
-    if (_value.time == null) {
-      return null;
-    }
-    return $RoomTimeDtoCopyWith<$Res>(_value.time, (value) {
-      return _then(_value.copyWith(time: value));
-    });
   }
 }
 
@@ -138,13 +140,12 @@ abstract class _$RoomDtoCopyWith<$Res> implements $RoomDtoCopyWith<$Res> {
       String creator,
       String type,
       String name,
-      RoomTimeDto time,
+      int dateMicroseconds,
+      List<int> from,
+      List<int> to,
       String description,
       bool inviteOnly,
       List<String> subscribers});
-
-  @override
-  $RoomTimeDtoCopyWith<$Res> get time;
 }
 
 /// @nodoc
@@ -162,7 +163,9 @@ class __$RoomDtoCopyWithImpl<$Res> extends _$RoomDtoCopyWithImpl<$Res>
     Object creator = freezed,
     Object type = freezed,
     Object name = freezed,
-    Object time = freezed,
+    Object dateMicroseconds = freezed,
+    Object from = freezed,
+    Object to = freezed,
     Object description = freezed,
     Object inviteOnly = freezed,
     Object subscribers = freezed,
@@ -172,7 +175,11 @@ class __$RoomDtoCopyWithImpl<$Res> extends _$RoomDtoCopyWithImpl<$Res>
       creator: creator == freezed ? _value.creator : creator as String,
       type: type == freezed ? _value.type : type as String,
       name: name == freezed ? _value.name : name as String,
-      time: time == freezed ? _value.time : time as RoomTimeDto,
+      dateMicroseconds: dateMicroseconds == freezed
+          ? _value.dateMicroseconds
+          : dateMicroseconds as int,
+      from: from == freezed ? _value.from : from as List<int>,
+      to: to == freezed ? _value.to : to as List<int>,
       description:
           description == freezed ? _value.description : description as String,
       inviteOnly:
@@ -193,14 +200,18 @@ class _$_RoomDto extends _RoomDto {
       @required this.creator,
       @required this.type,
       @required this.name,
-      @required this.time,
+      @required this.dateMicroseconds,
+      @required this.from,
+      @required this.to,
       @required this.description,
       @required this.inviteOnly,
       @required this.subscribers})
       : assert(creator != null),
         assert(type != null),
         assert(name != null),
-        assert(time != null),
+        assert(dateMicroseconds != null),
+        assert(from != null),
+        assert(to != null),
         assert(description != null),
         assert(inviteOnly != null),
         assert(subscribers != null),
@@ -219,7 +230,11 @@ class _$_RoomDto extends _RoomDto {
   @override
   final String name;
   @override
-  final RoomTimeDto time;
+  final int dateMicroseconds;
+  @override
+  final List<int> from;
+  @override
+  final List<int> to;
   @override
   final String description;
   @override
@@ -229,7 +244,7 @@ class _$_RoomDto extends _RoomDto {
 
   @override
   String toString() {
-    return 'RoomDto(id: $id, creator: $creator, type: $type, name: $name, time: $time, description: $description, inviteOnly: $inviteOnly, subscribers: $subscribers)';
+    return 'RoomDto(id: $id, creator: $creator, type: $type, name: $name, dateMicroseconds: $dateMicroseconds, from: $from, to: $to, description: $description, inviteOnly: $inviteOnly, subscribers: $subscribers)';
   }
 
   @override
@@ -245,8 +260,13 @@ class _$_RoomDto extends _RoomDto {
                 const DeepCollectionEquality().equals(other.type, type)) &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.time, time) ||
-                const DeepCollectionEquality().equals(other.time, time)) &&
+            (identical(other.dateMicroseconds, dateMicroseconds) ||
+                const DeepCollectionEquality()
+                    .equals(other.dateMicroseconds, dateMicroseconds)) &&
+            (identical(other.from, from) ||
+                const DeepCollectionEquality().equals(other.from, from)) &&
+            (identical(other.to, to) ||
+                const DeepCollectionEquality().equals(other.to, to)) &&
             (identical(other.description, description) ||
                 const DeepCollectionEquality()
                     .equals(other.description, description)) &&
@@ -265,7 +285,9 @@ class _$_RoomDto extends _RoomDto {
       const DeepCollectionEquality().hash(creator) ^
       const DeepCollectionEquality().hash(type) ^
       const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(time) ^
+      const DeepCollectionEquality().hash(dateMicroseconds) ^
+      const DeepCollectionEquality().hash(from) ^
+      const DeepCollectionEquality().hash(to) ^
       const DeepCollectionEquality().hash(description) ^
       const DeepCollectionEquality().hash(inviteOnly) ^
       const DeepCollectionEquality().hash(subscribers);
@@ -288,7 +310,9 @@ abstract class _RoomDto extends RoomDto {
       @required String creator,
       @required String type,
       @required String name,
-      @required RoomTimeDto time,
+      @required int dateMicroseconds,
+      @required List<int> from,
+      @required List<int> to,
       @required String description,
       @required bool inviteOnly,
       @required List<String> subscribers}) = _$_RoomDto;
@@ -305,7 +329,11 @@ abstract class _RoomDto extends RoomDto {
   @override
   String get name;
   @override
-  RoomTimeDto get time;
+  int get dateMicroseconds;
+  @override
+  List<int> get from;
+  @override
+  List<int> get to;
   @override
   String get description;
   @override
