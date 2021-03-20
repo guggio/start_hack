@@ -21,8 +21,9 @@ class RoomNameField extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<RoomFormBloc, RoomFormState>(
       builder: (context, state) => Container(
-        width: 500,
+        width: 400,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               padding: const EdgeInsets.only(bottom: 8),
@@ -37,10 +38,18 @@ class RoomNameField extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
               ),
               child: TextFormField(
+                cursorColor: Colors.black,
                 initialValue: "",
-                // TODO: sebastianguggisberg -> with controller
                 autocorrect: false,
-                decoration: InputDecoration(labelText: "Eg: Mom's spaghetti"),
+                decoration: InputDecoration(
+                  labelText: "  Eg: Mom's spaghetti",
+                  floatingLabelBehavior: FloatingLabelBehavior.never,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  focusedBorder: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(color: Colors.transparent, width: 1)),
+                ),
                 onChanged: (value) {
                   context
                       .read<RoomFormBloc>()

@@ -20,6 +20,7 @@ import 'package:start_hack/domain/room/room.dart';
 import 'package:start_hack/injection.dart';
 import 'package:start_hack/presentation/core/savings_overlay.dart';
 import 'package:start_hack/presentation/room/bloc/room_form_bloc.dart';
+import 'package:start_hack/presentation/room/view/widgets/break_duration_field.dart';
 import 'package:start_hack/presentation/room/view/widgets/room_date_field.dart';
 import 'package:start_hack/presentation/room/view/widgets/room_description_field.dart';
 import 'package:start_hack/presentation/room/view/widgets/room_name_field.dart';
@@ -35,22 +36,25 @@ class RoomFormPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getIt<RoomFormBloc>()
-        ..add(RoomFormEvent.initialized(
-          optionOf(editedRoom),
-        )),
-      child: BlocBuilder<RoomFormBloc, RoomFormState>(
-        buildWhen: (previousState, currentState) =>
-            previousState.isSaving != currentState.isSaving,
-        builder: (context, state) {
-          return Stack(
-            children: <Widget>[
-              RoomFormPageScaffold(),
-              SavingOverlay(isSaving: state.isSaving)
-            ],
-          );
-        },
+    return Scaffold(
+      appBar: AppBar(),
+      body: BlocProvider(
+        create: (context) => getIt<RoomFormBloc>()
+          ..add(RoomFormEvent.initialized(
+            optionOf(editedRoom),
+          )),
+        child: BlocBuilder<RoomFormBloc, RoomFormState>(
+          buildWhen: (previousState, currentState) =>
+              previousState.isSaving != currentState.isSaving,
+          builder: (context, state) {
+            return Stack(
+              children: <Widget>[
+                RoomFormPageScaffold(),
+                SavingOverlay(isSaving: state.isSaving)
+              ],
+            );
+          },
+        ),
       ),
     );
   }
@@ -108,20 +112,34 @@ class RoomFormPageScaffold extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(16),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      const Text("Your fabulous new chill",
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontFamily: "Inter",
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      const SizedBox(height: 24),
                       RoomTypeField(),
-                      const SizedBox(height: 32),
+                      const SizedBox(height: 24),
                       RoomNameField(),
-                      const SizedBox(height: 32),
+                      const SizedBox(height: 24),
                       RoomDateField(),
-                      const SizedBox(height: 32),
+                      const SizedBox(height: 24),
+                      BreakDurationField(),
+                      const SizedBox(height: 24),
                       RoomDescriptionField(),
-                      const SizedBox(height: 32),
+                      const SizedBox(height: 24),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Text("Invite-only?"),
+                          const SizedBox(width: 150),
                           CupertinoSwitch(
+                            activeColor: Color(0xff9841e4),
+                              trackColor: Colors.grey,
                               value: state.room.inviteOnly,
                               onChanged: (value) => context
                                   .read<RoomFormBloc>()
@@ -130,6 +148,14 @@ class RoomFormPageScaffold extends StatelessWidget {
                       ),
                       const SizedBox(height: 32),
                       ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.resolveWith<Color>(
+                            (Set<MaterialState> states) {
+                              return Color(0xff7500C0);
+                            },
+                          ),
+                        ),
                         onPressed: state.informationComplete
                             ? () {
                                 context
@@ -138,13 +164,15 @@ class RoomFormPageScaffold extends StatelessWidget {
                               }
                             : null,
                         child: const Text(
-                          'Create room',
+                          "Create room",
                           style: TextStyle(
-                            color: Color(0xFF1962B5),
-                            fontSize: 13,
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontFamily: "Inter",
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),

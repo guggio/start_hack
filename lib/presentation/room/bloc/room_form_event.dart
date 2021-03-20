@@ -13,7 +13,7 @@ abstract class RoomFormEvent with _$RoomFormEvent {
 
   const factory RoomFormEvent.fromChanged(TimeOfDay from) = _FromChanged;
 
-  const factory RoomFormEvent.toChanged(TimeOfDay to) = _ToChanged;
+  const factory RoomFormEvent.breakDurationChanged(BreakDuration breakDuration) = _BreakDurationChanged;
 
   const factory RoomFormEvent.descriptionChanged(String description) =
       _DescriptionChanged;

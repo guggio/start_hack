@@ -16,6 +16,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:start_hack/domain/core/unique_id.dart';
+import 'package:start_hack/domain/room/break_duration.dart';
 import 'package:start_hack/domain/room/period.dart';
 import 'package:start_hack/domain/room/room.dart';
 import 'package:start_hack/domain/room/room_description.dart';
@@ -37,22 +38,21 @@ abstract class RoomDto implements _$RoomDto {
     @required String name,
     @required int dateMicroseconds,
     @required List<int> from,
-    @required List<int> to,
+    @required String breakDuration,
     @required String description,
     @required bool inviteOnly,
     @required List<String> subscribers,
   }) = _RoomDto;
 
   factory RoomDto.fromDomain(Room room) {
-    var timeFromRoom = room.time;
     return RoomDto(
       id: room.id.value,
       creator: room.creator.value,
-      type: room.type.toString(),
+      type: room.type.toShortString(),
       name: room.name.getOrCrash(),
-      dateMicroseconds: timeFromRoom.date.microsecondsSinceEpoch,
-      from: [timeFromRoom.period.from.hour, timeFromRoom.period.to.minute],
-      to: [timeFromRoom.period.to.hour, timeFromRoom.period.to.minute],
+      dateMicroseconds: room.date.microsecondsSinceEpoch,
+      from: [room.from.hour, room.from.minute],
+      breakDuration: room.breakDuration.toShortString(),
       description: room.description.getOrCrash(),
       inviteOnly: room.inviteOnly,
       subscribers: room.subscribers.map((id) => id.value).toList(),
@@ -60,16 +60,13 @@ abstract class RoomDto implements _$RoomDto {
   }
 
   Room toDomain() {
-    final fromTime = TimeOfDay(hour: from[0], minute: from[1]);
-    final toTime = TimeOfDay(hour: to[0], minute: to[1]);
     return Room(
       id: UniqueId.fromUniqueString(id),
       creator: UniqueId.fromUniqueString(creator),
       type: RoomTypeHelper.toRoomType(type),
-      time: RoomTime(
-        date: DateTime.fromMicrosecondsSinceEpoch(dateMicroseconds),
-        period: Period(from: fromTime, to: toTime),
-      ),
+      date: DateTime.fromMicrosecondsSinceEpoch(dateMicroseconds),
+      from: TimeOfDay(hour: from[0], minute: from[1]),
+      breakDuration: BreakDurationHelper.toBreakDuration(breakDuration),
       name: RoomName(name),
       description: RoomDescription(description),
       inviteOnly: inviteOnly,

@@ -21,26 +21,46 @@ class RoomDescriptionField extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<RoomFormBloc, RoomFormState>(
       builder: (context, state) => Container(
-        width: 500,
+        width: 400,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               padding: const EdgeInsets.only(bottom: 8),
               child: const Text(
                   "Add description\nLet people understand what's amazing"),
             ),
-            TextFormField(
-              initialValue: "",
-              // TODO: sebastianguggisberg -> with controller
-              autocorrect: false,
-              decoration: InputDecoration(
+            Container(
+              height: 75,
+              alignment: Alignment.topLeft,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  style: BorderStyle.solid,
+                ),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: TextFormField(
+                keyboardType: TextInputType.multiline,
+                maxLines: null,
+                initialValue: "",
+                autocorrect: false,
+                decoration: InputDecoration(
                   labelText:
-                      "Eg: Intention, desired outcomes, agenda, roles, rules, time"),
-              onChanged: (value) {
-                context
-                    .read<RoomFormBloc>()
-                    .add(RoomFormEvent.descriptionChanged(value));
-              },
+                      "  Eg: Intention, desired outcomes, agenda, roles,\n rules, time",
+                  floatingLabelBehavior: FloatingLabelBehavior.never,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  border: InputBorder.none,
+                  focusedBorder: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(color: Colors.transparent, width: 1)),
+                ),
+                onChanged: (value) {
+                  context
+                      .read<RoomFormBloc>()
+                      .add(RoomFormEvent.descriptionChanged(value));
+                },
+              ),
             ),
           ],
         ),

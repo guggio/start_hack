@@ -13,7 +13,7 @@ _$_RoomDto _$_$_RoomDtoFromJson(Map<String, dynamic> json) {
     name: json['name'] as String,
     dateMicroseconds: json['dateMicroseconds'] as int,
     from: (json['from'] as List)?.map((e) => e as int)?.toList(),
-    to: (json['to'] as List)?.map((e) => e as int)?.toList(),
+    breakDuration: json['breakDuration'] as String,
     description: json['description'] as String,
     inviteOnly: json['inviteOnly'] as bool,
     subscribers:
@@ -28,7 +28,7 @@ Map<String, dynamic> _$_$_RoomDtoToJson(_$_RoomDto instance) =>
       'name': instance.name,
       'dateMicroseconds': instance.dateMicroseconds,
       'from': instance.from,
-      'to': instance.to,
+      'breakDuration': instance.breakDuration,
       'description': instance.description,
       'inviteOnly': instance.inviteOnly,
       'subscribers': instance.subscribers,

@@ -16,7 +16,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:start_hack/presentation/core/homepage.dart';
 import 'package:start_hack/presentation/signin/auth/auth_bloc.dart';
-import 'package:start_hack/presentation/signin/view/sign_in_form_page.dart';
 
 class SplashPage extends StatelessWidget {
   @override
@@ -28,7 +27,9 @@ class SplashPage extends StatelessWidget {
             authenticated: (_) => Navigator.of(context)
                 .push(MaterialPageRoute(builder: (context) => HomePage())),
             unauthenticated: (_) => Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => SignInPage())));
+                // .push(MaterialPageRoute(builder: (context) => SignInPage())));
+            .push(MaterialPageRoute(builder: (context) => HomePage())));
+
       },
       child: const Scaffold(
         body: Center(

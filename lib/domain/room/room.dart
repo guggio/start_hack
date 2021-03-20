@@ -13,12 +13,13 @@
  */
 
 import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:start_hack/domain/core/unique_id.dart';
 import 'package:start_hack/domain/core/value_failure.dart';
+import 'package:start_hack/domain/room/break_duration.dart';
 import 'package:start_hack/domain/room/room_description.dart';
 import 'package:start_hack/domain/room/room_name.dart';
-import 'package:start_hack/domain/room/room_time.dart';
 import 'package:start_hack/domain/room/room_type.dart';
 
 part 'room.freezed.dart';
@@ -32,18 +33,22 @@ abstract class Room implements _$Room {
     @required UniqueId creator,
     @required RoomType type,
     @required RoomName name,
-    @required RoomTime time,
+    @required DateTime date,
+    @required TimeOfDay from,
+    @required BreakDuration breakDuration,
     @required RoomDescription description,
     @required bool inviteOnly,
     @required List<UniqueId> subscribers,
   }) = _Room;
 
   factory Room.empty() => Room(
-        id: UniqueId(),
+    id: UniqueId(),
         creator: UniqueId(),
         type: RoomType.coffeeBreak,
         name: RoomName(""),
-        time: RoomTime.empty(),
+        date: DateTime.now(),
+        from: TimeOfDay(hour: 0, minute: 0),
+        breakDuration: BreakDuration.fifteen,
         description: RoomDescription(""),
         inviteOnly: false,
         subscribers: [],

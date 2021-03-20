@@ -24,7 +24,7 @@ class _$RoomDtoTearOff {
       @required String name,
       @required int dateMicroseconds,
       @required List<int> from,
-      @required List<int> to,
+      @required String breakDuration,
       @required String description,
       @required bool inviteOnly,
       @required List<String> subscribers}) {
@@ -35,7 +35,7 @@ class _$RoomDtoTearOff {
       name: name,
       dateMicroseconds: dateMicroseconds,
       from: from,
-      to: to,
+      breakDuration: breakDuration,
       description: description,
       inviteOnly: inviteOnly,
       subscribers: subscribers,
@@ -61,7 +61,7 @@ mixin _$RoomDto {
   String get name;
   int get dateMicroseconds;
   List<int> get from;
-  List<int> get to;
+  String get breakDuration;
   String get description;
   bool get inviteOnly;
   List<String> get subscribers;
@@ -82,7 +82,7 @@ abstract class $RoomDtoCopyWith<$Res> {
       String name,
       int dateMicroseconds,
       List<int> from,
-      List<int> to,
+      String breakDuration,
       String description,
       bool inviteOnly,
       List<String> subscribers});
@@ -104,7 +104,7 @@ class _$RoomDtoCopyWithImpl<$Res> implements $RoomDtoCopyWith<$Res> {
     Object name = freezed,
     Object dateMicroseconds = freezed,
     Object from = freezed,
-    Object to = freezed,
+    Object breakDuration = freezed,
     Object description = freezed,
     Object inviteOnly = freezed,
     Object subscribers = freezed,
@@ -118,7 +118,9 @@ class _$RoomDtoCopyWithImpl<$Res> implements $RoomDtoCopyWith<$Res> {
           ? _value.dateMicroseconds
           : dateMicroseconds as int,
       from: from == freezed ? _value.from : from as List<int>,
-      to: to == freezed ? _value.to : to as List<int>,
+      breakDuration: breakDuration == freezed
+          ? _value.breakDuration
+          : breakDuration as String,
       description:
           description == freezed ? _value.description : description as String,
       inviteOnly:
@@ -142,7 +144,7 @@ abstract class _$RoomDtoCopyWith<$Res> implements $RoomDtoCopyWith<$Res> {
       String name,
       int dateMicroseconds,
       List<int> from,
-      List<int> to,
+      String breakDuration,
       String description,
       bool inviteOnly,
       List<String> subscribers});
@@ -165,7 +167,7 @@ class __$RoomDtoCopyWithImpl<$Res> extends _$RoomDtoCopyWithImpl<$Res>
     Object name = freezed,
     Object dateMicroseconds = freezed,
     Object from = freezed,
-    Object to = freezed,
+    Object breakDuration = freezed,
     Object description = freezed,
     Object inviteOnly = freezed,
     Object subscribers = freezed,
@@ -179,7 +181,9 @@ class __$RoomDtoCopyWithImpl<$Res> extends _$RoomDtoCopyWithImpl<$Res>
           ? _value.dateMicroseconds
           : dateMicroseconds as int,
       from: from == freezed ? _value.from : from as List<int>,
-      to: to == freezed ? _value.to : to as List<int>,
+      breakDuration: breakDuration == freezed
+          ? _value.breakDuration
+          : breakDuration as String,
       description:
           description == freezed ? _value.description : description as String,
       inviteOnly:
@@ -202,7 +206,7 @@ class _$_RoomDto extends _RoomDto {
       @required this.name,
       @required this.dateMicroseconds,
       @required this.from,
-      @required this.to,
+      @required this.breakDuration,
       @required this.description,
       @required this.inviteOnly,
       @required this.subscribers})
@@ -211,7 +215,7 @@ class _$_RoomDto extends _RoomDto {
         assert(name != null),
         assert(dateMicroseconds != null),
         assert(from != null),
-        assert(to != null),
+        assert(breakDuration != null),
         assert(description != null),
         assert(inviteOnly != null),
         assert(subscribers != null),
@@ -234,7 +238,7 @@ class _$_RoomDto extends _RoomDto {
   @override
   final List<int> from;
   @override
-  final List<int> to;
+  final String breakDuration;
   @override
   final String description;
   @override
@@ -244,7 +248,7 @@ class _$_RoomDto extends _RoomDto {
 
   @override
   String toString() {
-    return 'RoomDto(id: $id, creator: $creator, type: $type, name: $name, dateMicroseconds: $dateMicroseconds, from: $from, to: $to, description: $description, inviteOnly: $inviteOnly, subscribers: $subscribers)';
+    return 'RoomDto(id: $id, creator: $creator, type: $type, name: $name, dateMicroseconds: $dateMicroseconds, from: $from, breakDuration: $breakDuration, description: $description, inviteOnly: $inviteOnly, subscribers: $subscribers)';
   }
 
   @override
@@ -265,8 +269,9 @@ class _$_RoomDto extends _RoomDto {
                     .equals(other.dateMicroseconds, dateMicroseconds)) &&
             (identical(other.from, from) ||
                 const DeepCollectionEquality().equals(other.from, from)) &&
-            (identical(other.to, to) ||
-                const DeepCollectionEquality().equals(other.to, to)) &&
+            (identical(other.breakDuration, breakDuration) ||
+                const DeepCollectionEquality()
+                    .equals(other.breakDuration, breakDuration)) &&
             (identical(other.description, description) ||
                 const DeepCollectionEquality()
                     .equals(other.description, description)) &&
@@ -287,7 +292,7 @@ class _$_RoomDto extends _RoomDto {
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(dateMicroseconds) ^
       const DeepCollectionEquality().hash(from) ^
-      const DeepCollectionEquality().hash(to) ^
+      const DeepCollectionEquality().hash(breakDuration) ^
       const DeepCollectionEquality().hash(description) ^
       const DeepCollectionEquality().hash(inviteOnly) ^
       const DeepCollectionEquality().hash(subscribers);
@@ -312,7 +317,7 @@ abstract class _RoomDto extends RoomDto {
       @required String name,
       @required int dateMicroseconds,
       @required List<int> from,
-      @required List<int> to,
+      @required String breakDuration,
       @required String description,
       @required bool inviteOnly,
       @required List<String> subscribers}) = _$_RoomDto;
@@ -333,7 +338,7 @@ abstract class _RoomDto extends RoomDto {
   @override
   List<int> get from;
   @override
-  List<int> get to;
+  String get breakDuration;
   @override
   String get description;
   @override

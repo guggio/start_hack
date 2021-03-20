@@ -15,33 +15,27 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart';
 import 'package:start_hack/domain/room/period.dart';
-import 'package:start_hack/domain/room/room_time.dart';
 import 'package:start_hack/presentation/room/bloc/room_form_bloc.dart';
-
-enum PeriodField { from, to }
 
 class RoomDateField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<RoomFormBloc, RoomFormState>(
       builder: (context, state) => Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Icon(Icons.watch_later_outlined),
-          Text(DateFormat('dd-MM-yyyy').format(state.room.time.date)),
-          const SizedBox(width: 4),
-          buildTimeField(context, state.room.time, PeriodField.from),
-          const SizedBox(width: 4),
-          buildTimeField(context, state.room.time, PeriodField.to),
+          const SizedBox(width: 8),
+          Text("Today"),
+          const SizedBox(width: 8),
+          buildTimeField(context, state.room.from),
         ],
       ),
     );
   }
 
-  GestureDetector buildTimeField(
-      BuildContext context, RoomTime time, PeriodField periodField) {
+  GestureDetector buildTimeField(BuildContext context, TimeOfDay time) {
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).requestFocus(new FocusNode());
@@ -49,26 +43,15 @@ class RoomDateField extends StatelessWidget {
           context: context,
           builder: (builderContext) => BlocProvider.value(
             value: context.read<RoomFormBloc>(),
-            child: _buildTimePicker(periodField, time),
+            child: _buildTimePicker(time),
           ),
         );
       },
-      child: Text(
-        getOpeningHour(time, periodField),
-      ),
+      child: Text(time.getTimeString()),
     );
   }
 
-  String getOpeningHour(RoomTime time, PeriodField periodField) {
-    final period = time.period;
-    if (periodField == PeriodField.from) {
-      return period.from.getTimeString();
-    } else {
-      return period.to.getTimeString();
-    }
-  }
-
-  Widget _buildTimePicker(PeriodField periodField, RoomTime time) {
+  Widget _buildTimePicker(TimeOfDay time) {
     return Dialog(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
@@ -76,17 +59,14 @@ class RoomDateField extends StatelessWidget {
       elevation: 0.0,
       backgroundColor: Colors.transparent,
       insetPadding: EdgeInsets.all(16),
-      child: _initContent(periodField, time),
+      child: _initContent(time),
     );
   }
 
-  Widget _initContent(PeriodField periodField, RoomTime roomTime) {
+  Widget _initContent(TimeOfDay timeOfDay) {
     return BlocBuilder<RoomFormBloc, RoomFormState>(
       builder: (context, state) {
-        final initalTime = periodField == PeriodField.from
-            ? roomTime.period.from
-            : roomTime.period.to;
-
+        final initalTime = timeOfDay;
         return SizedBox(
           height: 125,
           width: 10,
@@ -99,15 +79,8 @@ class RoomDateField extends StatelessWidget {
             ),
             child: CupertinoDatePicker(
               onDateTimeChanged: (time) {
-                if (validatePeriod(time, periodField, roomTime.period)) {
-                  if (periodField == PeriodField.from) {
                     context.read<RoomFormBloc>().add(RoomFormEvent.fromChanged(
                         TimeOfDay.fromDateTime(time)));
-                  } else {
-                    context.read<RoomFormBloc>().add(
-                        RoomFormEvent.toChanged(TimeOfDay.fromDateTime(time)));
-                  }
-                }
               },
               mode: CupertinoDatePickerMode.time,
               use24hFormat: true,
@@ -119,18 +92,5 @@ class RoomDateField extends StatelessWidget {
         );
       },
     );
-  }
-
-  bool validatePeriod(
-      DateTime newTime, PeriodField periodField, Period previousPeriod) {
-    if (periodField == PeriodField.from) {
-      return !previousPeriod
-          .copyWith(from: TimeOfDay.fromDateTime(newTime))
-          .fromEqualsTo;
-    } else {
-      return !previousPeriod
-          .copyWith(to: TimeOfDay.fromDateTime(newTime))
-          .fromEqualsTo;
-    }
   }
 }
