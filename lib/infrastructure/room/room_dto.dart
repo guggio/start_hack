@@ -46,9 +46,9 @@ abstract class RoomDto implements _$RoomDto {
       id: room.id.value,
       creator: room.creator.value,
       type: room.type.toString(),
-      name: room.name.value,
+      name: room.name.getOrCrash(),
       time: RoomTimeDto.fromDomain(room.time),
-      description: room.description.value,
+      description: room.description.getOrCrash(),
       inviteOnly: room.inviteOnly,
       subscribers: room.subscribers.map((id) => id.value),
     );

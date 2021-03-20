@@ -29,6 +29,10 @@ dependencies:
   cloud_firestore: ^0.16.0+1
   firebase_auth: ^0.20.1
 
+  # Flutter blocd
+  bloc: ^6.1.0
+  flutter_bloc: ^6.1.1
+
   # helper packages
   uuid: ^2.2.2
   freezed_annotation: ^0.12.0

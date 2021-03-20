@@ -16,6 +16,20 @@ import 'package:kt_dart/exception.dart';
 
 enum RoomType { coffeeBreak, gameTime, discussion }
 
+extension RoomTypeX on RoomType {
+  String getDisplayName() {
+    switch (this) {
+      case RoomType.coffeeBreak:
+        return 'Coffee break';
+      case RoomType.gameTime:
+        return 'Game time';
+      case RoomType.discussion:
+        return 'Discussion';
+    }
+    return '';
+  }
+}
+
 class RoomTypeHelper {
   const RoomTypeHelper._();
 

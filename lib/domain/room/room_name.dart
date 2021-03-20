@@ -12,10 +12,31 @@
  *
  */
 
-class RoomName {
+import 'package:dartz/dartz.dart';
+import 'package:start_hack/domain/core/value_failure.dart';
+import 'package:start_hack/domain/core/value_object.dart';
+import 'package:start_hack/domain/core/value_validators.dart';
+
+class RoomName extends ValueObject<String> {
   static const maxLength = 30;
 
-  final String value;
+  @override
+  final Either<ValueFailure<String>, String> value;
 
-  RoomName(this.value);
+  factory RoomName(String input) {
+    assert(input != null);
+    return RoomName._(validateMaxStringLength(input, maxLength)
+        .flatMap(validateStringNotEmpty)
+        .flatMap(validateSingleLine));
+  }
+
+  RoomName._(this.value);
+
+  @override
+  bool isEmpty() {
+    return failureOrUnits.fold(
+      (failure) => failure == ValueFailure.empty(failedValue: ''),
+      (_) => false,
+    );
+  }
 }
