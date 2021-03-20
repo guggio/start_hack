@@ -111,7 +111,7 @@ class RoomView extends StatelessWidget {
     return rooms.map((room) => createRoomCard(context, room)).toList();
   }
 
-  Widget createRoomCard(BuildContext context, Room room) {
+  Widget createRoomCard(BuildContext context, Room room) { // TODO: sebastianguggisberg -> here adding the nice cards.. hopefully
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
