@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
+import 'package:start_hack/domain/authentication/i_auth_facade.dart';
 import 'package:start_hack/domain/core/loading_failure.dart';
 import 'package:start_hack/domain/core/unique_id.dart';
 import 'package:start_hack/domain/core/value_failure.dart';
@@ -15,6 +16,7 @@ import 'package:start_hack/domain/room/room.dart';
 import 'package:start_hack/domain/room/room_description.dart';
 import 'package:start_hack/domain/room/room_name.dart';
 import 'package:start_hack/domain/room/room_type.dart';
+import 'package:start_hack/injection.dart';
 
 part 'room_form_bloc.freezed.dart';
 part 'room_form_event.dart';
@@ -32,14 +34,14 @@ class RoomFormBloc extends Bloc<RoomFormEvent, RoomFormState> {
   ) async* {
     yield* event.map(
         initialized: (e) async* {
-          // final userOption = e.userOption.isSome()
-          //     ? e.userOption
-      //     : await getIt<IAuthFacade>().getSignedInUser();
+          final userOption = await getIt<IAuthFacade>().getSignedInUser();
       yield e.initialRoom.fold(
         () => state.copyWith(
             room: state.room.copyWith(
-          creator: UniqueId.fromUniqueString(
-              "123"), // TODO: sebastianguggisberg -> can be made real when we have auth
+          creator: UniqueId.fromUniqueString(userOption
+              .getOrElse(() => null)
+              ?.id
+              ?.value),
         )),
         (editedRoom) => state.copyWith(
           room: editedRoom,
