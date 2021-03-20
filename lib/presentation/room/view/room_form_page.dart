@@ -63,7 +63,45 @@ class RoomFormPageScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocConsumer<RoomFormBloc, RoomFormState>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          if (state.informationComplete) {
+            state.valueFailureOrOk.fold(
+              () {},
+              (failure) {
+                final snackBar = SnackBar(
+                  content: Text(failure.maybeMap(
+                    exceedingLength: (_) => 'Text ist too long!',
+                    orElse: () => 'Unexpected error',
+                  )),
+                );
+                ScaffoldMessenger.of(context).showSnackBar(snackBar);
+              },
+            );
+
+            state.saveFailureOrSuccessOption.fold(
+              () => {},
+              (either) {
+                either.fold(
+                  (failure) {
+                    final snackBar = SnackBar(
+                      content: Text(failure.maybeMap(
+                        insufficientPermission: (_) =>
+                            'Insufficient permissions',
+                        unableToUpdate: (_) => "Couldn't update the ascent. ",
+                        orElse: () =>
+                            'Unexpected error occured, please contact support.',
+                      )),
+                    );
+                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                  },
+                  (_) {
+                    Navigator.of(context).pop();
+                  },
+                );
+              },
+            );
+          }
+        },
         builder: (context, state) {
           return Form(
             child: SingleChildScrollView(
