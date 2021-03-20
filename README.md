@@ -25,12 +25,11 @@ Inspriational Themes
 Our Product Vision - Tired of working? Looking for ‘water cooler’ chats? Hop in on our Social platform and open a break out room to connect with your colleagues, play a game, go for walks together or listen to your CEO talking about latest company news..
 
 Use Case -
-
--engagement with co-workers
--increase happiness and fitness quotient
--informal setup with no prior scheduling required
--easy to use, flexible and not restricted
--screen time breaks
+- engagement with co-workers
+- increase happiness and fitness quotient
+- informal setup with no prior scheduling required
+- easy to use, flexible and not restricted
+- screen time breaks
 
 Features - 
 - All Company Employees can activate their account
