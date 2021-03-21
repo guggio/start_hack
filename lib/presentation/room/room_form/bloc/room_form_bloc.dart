@@ -39,7 +39,7 @@ class RoomFormBloc extends Bloc<RoomFormEvent, RoomFormState> {
         () => state.copyWith(
           room: state.room.copyWith(
             creator: UniqueId.fromUniqueString(userOption.isSome()
-                ? userOption.getOrElse(null).id
+                ? userOption.getOrElse(null).id.value
                 : ""),
           ),
         ),
