@@ -34,6 +34,20 @@ extension RoomTypeX on RoomType {
     }
     return '';
   }
+
+  String getEmoji() {
+    switch (this) {
+      case RoomType.coffeeBreak:
+        return '☕️';
+      case RoomType.gameTime:
+        return '🎮';
+      case RoomType.discussion:
+        return '👥';
+      case RoomType.exercise:
+        return '🧘🧘‍️';
+    }
+    return '';
+  }
 }
 
 class RoomTypeHelper {

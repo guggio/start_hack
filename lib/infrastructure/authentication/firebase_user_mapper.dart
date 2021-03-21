@@ -18,6 +18,9 @@ import 'package:start_hack/domain/core/unique_id.dart';
 
 extension FirebaseUserDomainX on firebase.User {
   User toDomain() {
-    return User(id: UniqueId.fromUniqueString(uid));
+    return User(
+        id: UniqueId.fromUniqueString(uid),
+        displayName: displayName,
+        photoUrl: photoURL);
   }
 }

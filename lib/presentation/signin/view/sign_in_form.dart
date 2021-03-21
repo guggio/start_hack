@@ -37,9 +37,6 @@ class SignInForm extends StatelessWidget {
                     ScaffoldMessenger.of(context).showSnackBar(snackBar);
                   },
                   (_) {
-                    // Navigator.of(context).
-                    // ExtendedNavigator.of(context).pushNotesOverviewPage();
-
                     context
                         .read<AuthBloc>()
                         .add(const AuthEvent.authCheckRequested());
@@ -65,7 +62,7 @@ class SignInForm extends StatelessWidget {
                       ),
                       SizedBox(width: 24),
                       Text(
-                        "Esspressout",
+                        "Espressout",
                         style: TextStyle(
                           fontSize: 36,
                           fontFamily: "Inter",
