@@ -269,11 +269,7 @@ class RoomView extends StatelessWidget {
                             },
                           ),
                         ),
-                        onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) =>
-                                  RoomFormPage(editedRoom: null)));
-                        },
+                        onPressed: null,
                         child: const Text(
                           "Join in now",
                           style: TextStyle(

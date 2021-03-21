@@ -75,6 +75,7 @@ flutter:
     - assets/images/home-page-illustration.svg
     - assets/images/esspressout.svg
     - assets/images/espressout-logo-large.png
+    - assets/images/sample-heads-small.svg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
