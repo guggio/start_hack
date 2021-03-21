@@ -41,6 +41,7 @@ dependencies:
   injectable: ^1.0.5
   kt_dart: ^0.8.0
   dartz: ^0.9.2
+  flutter_svg: ^0.19.3
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -70,8 +71,10 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/images/home-page-illustration.svg
+    - assets/images/esspressout.svg
+    - assets/images/espressout-logo-large.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
