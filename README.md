@@ -8,7 +8,7 @@
 <br>
 <h4> <div align="center"> https://start-hack-d0c66.firebaseapp.com/#/ </div> </h4>
 <hr>
-<br>
+<div align="center"> <img src="assets/images/SignInScreen.PNG"> </div>
 
 <h2> <b> Accenture Case Statement - </b> Future of Work </h2>
 
