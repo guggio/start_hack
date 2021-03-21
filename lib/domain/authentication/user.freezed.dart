@@ -14,11 +14,9 @@ class _$UserTearOff {
   const _$UserTearOff();
 
 // ignore: unused_element
-  _User call({@required UniqueId id, String displayName, String photoUrl}) {
+  _User call({@required UniqueId id}) {
     return _User(
       id: id,
-      displayName: displayName,
-      photoUrl: photoUrl,
     );
   }
 }
@@ -30,8 +28,6 @@ const $User = _$UserTearOff();
 /// @nodoc
 mixin _$User {
   UniqueId get id;
-  String get displayName;
-  String get photoUrl;
 
   @JsonKey(ignore: true)
   $UserCopyWith<User> get copyWith;
@@ -41,7 +37,7 @@ mixin _$User {
 abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res>;
-  $Res call({UniqueId id, String displayName, String photoUrl});
+  $Res call({UniqueId id});
 }
 
 /// @nodoc
@@ -55,14 +51,9 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
   @override
   $Res call({
     Object id = freezed,
-    Object displayName = freezed,
-    Object photoUrl = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as UniqueId,
-      displayName:
-          displayName == freezed ? _value.displayName : displayName as String,
-      photoUrl: photoUrl == freezed ? _value.photoUrl : photoUrl as String,
     ));
   }
 }
@@ -72,7 +63,7 @@ abstract class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
   factory _$UserCopyWith(_User value, $Res Function(_User) then) =
       __$UserCopyWithImpl<$Res>;
   @override
-  $Res call({UniqueId id, String displayName, String photoUrl});
+  $Res call({UniqueId id});
 }
 
 /// @nodoc
@@ -87,33 +78,23 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
   @override
   $Res call({
     Object id = freezed,
-    Object displayName = freezed,
-    Object photoUrl = freezed,
   }) {
     return _then(_User(
       id: id == freezed ? _value.id : id as UniqueId,
-      displayName:
-          displayName == freezed ? _value.displayName : displayName as String,
-      photoUrl: photoUrl == freezed ? _value.photoUrl : photoUrl as String,
     ));
   }
 }
 
 /// @nodoc
 class _$_User implements _User {
-  const _$_User({@required this.id, this.displayName, this.photoUrl})
-      : assert(id != null);
+  const _$_User({@required this.id}) : assert(id != null);
 
   @override
   final UniqueId id;
-  @override
-  final String displayName;
-  @override
-  final String photoUrl;
 
   @override
   String toString() {
-    return 'User(id: $id, displayName: $displayName, photoUrl: $photoUrl)';
+    return 'User(id: $id)';
   }
 
   @override
@@ -121,21 +102,12 @@ class _$_User implements _User {
     return identical(this, other) ||
         (other is _User &&
             (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.displayName, displayName) ||
-                const DeepCollectionEquality()
-                    .equals(other.displayName, displayName)) &&
-            (identical(other.photoUrl, photoUrl) ||
-                const DeepCollectionEquality()
-                    .equals(other.photoUrl, photoUrl)));
+                const DeepCollectionEquality().equals(other.id, id)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(displayName) ^
-      const DeepCollectionEquality().hash(photoUrl);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(id);
 
   @JsonKey(ignore: true)
   @override
@@ -144,15 +116,10 @@ class _$_User implements _User {
 }
 
 abstract class _User implements User {
-  const factory _User(
-      {@required UniqueId id, String displayName, String photoUrl}) = _$_User;
+  const factory _User({@required UniqueId id}) = _$_User;
 
   @override
   UniqueId get id;
-  @override
-  String get displayName;
-  @override
-  String get photoUrl;
   @override
   @JsonKey(ignore: true)
   _$UserCopyWith<_User> get copyWith;

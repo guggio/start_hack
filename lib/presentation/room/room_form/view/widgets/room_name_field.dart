@@ -82,7 +82,6 @@ class RoomNameField extends StatelessWidget {
             ),
             child: TextFormField(
               initialValue: "",
-              // TODO: sebastianguggisberg -> with controller
               autocorrect: false,
               decoration: InputDecoration(labelText: "Eg: Mom's spaghetti"),
               onChanged: (value) {

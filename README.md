@@ -1,14 +1,14 @@
 <h1> <div align="center"> START HACK 2021 </div> </h1>
 
 <h5> <div align="center"> The beginning of a wonderful journey for the START HACK team of: </div> </h1>
-<h6> <div align="center"> Alberto [Italy] </div> </h6>
-<h6> <div align="center"> Michael [Ireland] </div> </h6>
-<h6> <div align="center"> Sherry [India] </div> </h6>
-<h6> <div align="center"> Sebastian [Switzerland] </div> </h6>
+<h6> <div align="center"> Alberto - Product Designer & Facilitator [Italy] </div> </h6>
+<h6> <div align="center"> Michael - Software Developer [Ireland] </div> </h6>
+<h6> <div align="center"> Sherry - Product Manager [India] </div> </h6>
+<h6> <div align="center"> Sebastian - Software Developer & Decision Maker [Switzerland] </div> </h6>
 <br>
 <h4> <div align="center"> https://start-hack-d0c66.firebaseapp.com/#/ </div> </h4>
 <hr>
-<br>
+<div align="center"> <img src="assets/images/SignInScreen.PNG"> </div>
 
 <h2> <b> Accenture Case Statement - </b> Future of Work </h2>
 

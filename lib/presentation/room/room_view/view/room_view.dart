@@ -12,6 +12,7 @@
  *
  */
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:start_hack/domain/core/unique_id.dart';
@@ -138,7 +139,98 @@ class RoomView extends StatelessWidget {
       child: Card(
         child: GestureDetector(
           onTap: () {
-            print('Card tapped.');
+            showDialog(
+                context: context,
+                builder: (context) => Dialog(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      elevation: 0.0,
+                      backgroundColor: Colors.transparent,
+                      insetPadding: EdgeInsets.all(16),
+                      child: Container(
+                        padding: EdgeInsets.all(16),
+                        decoration: new BoxDecoration(
+                          color: const Color(0xFFFFFFFF),
+                          shape: BoxShape.rectangle,
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        child: SizedBox(
+                          width: 250,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  ElevatedButton(
+                                    style: ButtonStyle(
+                                      backgroundColor: MaterialStateProperty
+                                          .resolveWith<Color>(
+                                        (Set<MaterialState> states) {
+                                          return Color(0xff7500C0);
+                                        },
+                                      ),
+                                    ),
+                                    onPressed: null,
+                                    child: Text(
+                                      "Share",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontFamily: "Inter",
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(width: 16),
+                                  IconButton(
+                                      icon: Icon(Icons.close),
+                                      onPressed: () =>
+                                          Navigator.of(context).pop()),
+                                ],
+                              ),
+                              SizedBox(height: 8),
+                              getNameWidget(room),
+                              SizedBox(height: 24),
+                              getDescriptionWidget(room),
+                              SizedBox(height: 16),
+                              getHostedByWidget(room),
+                              SizedBox(height: 8),
+                              getPositionWidget(room),
+                              SizedBox(height: 24),
+                              getTimeWidget(room),
+                              SizedBox(height: 24),
+                              SizedBox(
+                                width: double.infinity,
+                                child: ElevatedButton(
+                                  style: ButtonStyle(
+                                    backgroundColor: MaterialStateProperty
+                                        .resolveWith<Color>(
+                                      (Set<MaterialState> states) {
+                                        return Color(0xff7500C0);
+                                      },
+                                    ),
+                                  ),
+                                  onPressed: null,
+                                  child: const Text(
+                                    "Remind me",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 16,
+                                      fontFamily: "Inter",
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ));
           },
           child: Container(
             decoration: BoxDecoration(
@@ -158,40 +250,13 @@ class RoomView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     SizedBox(height: 8),
-                    Text(
-                      room.name.getOrCrash() + " " + room.type.getEmoji(),
-                      style: TextStyle(
-                        fontSize: 18,
-                        // fontFamily: "Inter",
-                        fontWeight: FontWeight.w900,
-                      ),
-                    ),
+                    getNameWidget(room),
                     SizedBox(height: 24),
-                    Text(
-                      "Hosted by " + getHostName(room.creator),
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontFamily: "Inter",
-                        fontWeight: FontWeight.w900,
-                      ),
-                    ),
+                    getHostedByWidget(room),
                     SizedBox(height: 8),
-                    Text(
-                      getPosition(room.creator),
-                      style: TextStyle(
-                        fontSize: 10,
-                        fontFamily: "Inter",
-                      ),
-                    ),
+                    getPositionWidget(room),
                     SizedBox(height: 24),
-                    Text(
-                      getTimeText(room),
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontFamily: "Inter",
-                        fontWeight: FontWeight.w900,
-                      ),
-                    ),
+                    getTimeWidget(room),
                     SizedBox(height: 24),
                     SizedBox(
                       width: double.infinity,
@@ -204,11 +269,7 @@ class RoomView extends StatelessWidget {
                             },
                           ),
                         ),
-                        onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) =>
-                                  RoomFormPage(editedRoom: null)));
-                        },
+                        onPressed: null,
                         child: const Text(
                           "Join in now",
                           style: TextStyle(
@@ -226,6 +287,59 @@ class RoomView extends StatelessWidget {
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget getTimeWidget(Room room) {
+    return Text(
+      getTimeText(room),
+      style: TextStyle(
+        fontSize: 16,
+        fontFamily: "Inter",
+        fontWeight: FontWeight.w900,
+      ),
+    );
+  }
+
+  Widget getPositionWidget(Room room) {
+    return Text(
+      getPosition(room.creator),
+      style: TextStyle(
+        fontSize: 10,
+        fontFamily: "Inter",
+      ),
+    );
+  }
+
+  Widget getHostedByWidget(Room room) {
+    return Text(
+      "Hosted by " + getHostName(room.creator),
+      style: TextStyle(
+        fontSize: 14,
+        fontFamily: "Inter",
+        fontWeight: FontWeight.w900,
+      ),
+    );
+  }
+
+  Widget getNameWidget(Room room) {
+    return Text(
+      room.name.getOrCrash() + " " + room.type.getEmoji(),
+      style: TextStyle(
+        fontSize: 18,
+        // fontFamily: "Inter",
+        fontWeight: FontWeight.w900,
+      ),
+    );
+  }
+
+  Widget getDescriptionWidget(Room room) {
+    return Text(
+      room.description.getOrCrash(),
+      style: TextStyle(
+        fontSize: 14,
+        fontFamily: "Inter",
       ),
     );
   }
